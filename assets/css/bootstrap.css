@@ -41,6 +41,19 @@
   box-sizing: border-box;
 }
 
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card {
+  max-width: 350px; /* Reduz a largura máxima dos cartões */
+  margin: 0 auto; /* Centraliza os cartões */
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
