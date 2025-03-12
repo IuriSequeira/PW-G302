@@ -110,6 +110,7 @@ p {
   color: #ffcd29;
 }
 
+/*inicio dos gráficos estatisiticas*/
 
 /* Estilos Gerais */
 body {
@@ -222,7 +223,7 @@ canvas {
   width: 100% !important; /* Para garantir que o gráfico ocupe 100% da largura do cartão */
   height: 300px !important;  /* Tamanho adequado para gráficos em telas grandes */
 }
-
+/*fim dos gráficos estatisiticas*/
 
 
 html {
@@ -4528,7 +4529,8 @@ input[type="button"].btn-block {
   align-items: center;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
+  padding: 5px 15px !important;
+  min-height: 50px !important;
 }
 
 .navbar .container,
