@@ -27,12 +27,12 @@
   <div class="back-to-top"></div>
 
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.1);">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.1); padding: 10px 20px;">
       <div class="container">
         <!-- Nome da Marca com Ícone -->
-        <a class="navbar-brand d-flex align-items-center" href="#">
-          <i class="mai-eye text-primary" style="font-size: 24px; margin-right: 5px;"></i>
-          <span class="text-primary">Eyes</span>Everywhere
+        <a class="navbar-brand d-flex align-items-center mr-4" href="#" style="font-size: 22px; margin-right: 40px;">
+          <i class="mai-eye text-primary" style="font-size: 28px; margin-right: 10px;"></i>
+          <span class="text-primary" style="font-weight: bold;">Eyes</span>Everywhere
         </a>
   
         <!-- Botão de Menu Mobile -->
@@ -43,165 +43,145 @@
         <!-- Itens do Menu -->
         <div class="collapse navbar-collapse" id="navbarSupport">
           <ul class="navbar-nav ml-auto">
+            <!-- Menu Item: Home -->
             <li class="nav-item active">
-              <a class="nav-link d-flex align-items-center" href="index.html">
+              <a class="nav-link d-flex align-items-center" href="index.html" style="font-size: 14px; padding: 8px 15px;">
                 <i class="mai-home mr-2"></i>Menu
               </a>
             </li>
+  
+            <!-- Menu Item: Sobre Nós -->
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center" href="about.html">
+              <a class="nav-link d-flex align-items-center" href="about.html" style="font-size: 14px; padding: 8px 15px;">
                 <i class="mai-people mr-2"></i>Sobre Nós
               </a>
             </li>
+  
+            <!-- Menu Item: Peritos -->
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center" href="doctors.html">
+              <a class="nav-link d-flex align-items-center" href="doctors.html" style="font-size: 14px; padding: 8px 15px;">
                 <i class="mai-person mr-2"></i>Peritos
               </a>
             </li>
+  
+            <!-- Menu Item: Ocorrências -->
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center" href="blog.html">
+              <a class="nav-link d-flex align-items-center" href="blog.html" style="font-size: 14px; padding: 8px 15px;">
                 <i class="mai-document mr-2"></i>Ocorrências
               </a>
             </li>
+  
+            <!-- Menu Item: Estatísticas -->
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center" href="contact.html">
+              <a class="nav-link d-flex align-items-center" href="stats.html" style="font-size: 14px; padding: 8px 15px;">
+                <i class="mai-stats-chart mr-2"></i>Estatísticas
+              </a>
+            </li>
+  
+            <!-- Menu Item: Contactos -->
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center" href="contact.html" style="font-size: 14px; padding: 8px 15px;">
                 <i class="mai-call mr-2"></i>Contactos
               </a>
             </li>
+  
+            <!-- Denúncia Button -->
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="#">
+              <a class="btn btn-primary btn-sm ml-lg-3" href="#" style="font-size: 13px; padding: 6px 12px;">
                 <i class="mai-alert-circle mr-1"></i>Denúncia
               </a>
             </li>
           </ul>
         </div>
-      </div> 
+      </div>
     </nav>
-  </header>
+  </header>  
 
   <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
     <div class="banner-section">
       <div class="container text-center wow fadeInUp">
         <nav aria-label="Breadcrumb">
           <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Doctors</li>
+            <li class="breadcrumb-item"><a href="index.html">Menu</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Peritos</li>
           </ol>
         </nav>
-        <h1 class="font-weight-normal">Our Doctors</h1>
+        <h1 class="font-weight-normal">Os nossos Peritos</h1>
       </div> <!-- .container -->
     </div> <!-- .banner-section -->
   </div> <!-- .page-banner -->
 
-  <div class="page-section bg-light">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
+<!-- Página de Histórias dos Profissionais -->
+<div class="page-section">
+  <div class="container">
+      <h1 class="text-center mb-5 wow fadeInUp">O valor dos Nossos Peritos</h1>
 
-          <div class="row">
-            
-            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="../assets/img/doctors/doctor_1.jpg" alt="">
-                  <div class="meta">
-                    <a href="#"><span class="mai-call"></span></a>
-                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
+      <div class="row">
+          <!-- Dr. Jorge Soares -->
+          <div class="col-md-12 mb-5">
+              <div class="card shadow-lg d-flex flex-row" style="max-width: 100%; border-radius: 15px;">
+                  <img src="../assets/img/doctors/técnico de laboratório.jpg" class="card-img-left" alt="Dr. Jorge Soares" style="width: 35%; object-fit: cover; border-top-left-radius: 15px; border-bottom-left-radius: 15px;">
+                  <div class="card-body">
+                      <h5 class="card-title">Dr. Jorge Soares</h5>
+                      <p class="text-muted">Técnico de Laboratório</p>
+                      <p class="card-text">Com uma vasta experiência em análises laboratoriais, o Dr. Jorge Soares iniciou sua carreira em um dos maiores hospitais da cidade, onde ficou responsável por diversas áreas de testes clínicos. Ao longo dos anos, aprimorou suas habilidades em garantir a precisão dos resultados, colaborando com as equipes médicas para oferecer diagnósticos rápidos e confiáveis. Sua experiência se estende à implementação de novas tecnologias de laboratório, tornando-o um dos profissionais mais respeitados no setor de saúde.</p>
                   </div>
-                </div>
-                <div class="body">
-                  <p class="text-xl mb-0">Dr. Stein Albert</p>
-                  <span class="text-sm text-grey">Cardiology</span>
-                </div>
               </div>
-            </div>
-    
-            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="../assets/img/doctors/doctor_2.jpg" alt="">
-                  <div class="meta">
-                    <a href="#"><span class="mai-call"></span></a>
-                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                  </div>
-                </div>
-                <div class="body">
-                  <p class="text-xl mb-0">Dr. Alexa Melvin</p>
-                  <span class="text-sm text-grey">Dental</span>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="../assets/img/doctors/doctor_3.jpg" alt="">
-                  <div class="meta">
-                    <a href="#"><span class="mai-call"></span></a>
-                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                  </div>
-                </div>
-                <div class="body">
-                  <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
-                  <span class="text-sm text-grey">General Health</span>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="../assets/img/doctors/doctor_1.jpg" alt="">
-                  <div class="meta">
-                    <a href="#"><span class="mai-call"></span></a>
-                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                  </div>
-                </div>
-                <div class="body">
-                  <p class="text-xl mb-0">Dr. Stein Albert</p>
-                  <span class="text-sm text-grey">Cardiology</span>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="../assets/img/doctors/doctor_2.jpg" alt="">
-                  <div class="meta">
-                    <a href="#"><span class="mai-call"></span></a>
-                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                  </div>
-                </div>
-                <div class="body">
-                  <p class="text-xl mb-0">Dr. Alexa Melvin</p>
-                  <span class="text-sm text-grey">Dental</span>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-md-6 col-lg-4 py-3 wow zoomIn">
-              <div class="card-doctor">
-                <div class="header">
-                  <img src="../assets/img/doctors/doctor_3.jpg" alt="">
-                  <div class="meta">
-                    <a href="#"><span class="mai-call"></span></a>
-                    <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                  </div>
-                </div>
-                <div class="body">
-                  <p class="text-xl mb-0">Dr. Rebecca Steffany</p>
-                  <span class="text-sm text-grey">General Health</span>
-                </div>
-              </div>
-            </div>
-
           </div>
 
-        </div>
+          <!-- Dr. Pedro Almeida -->
+          <div class="col-md-12 mb-5">
+              <div class="card shadow-lg d-flex flex-row" style="max-width: 100%; border-radius: 15px;">
+                  <img src="../assets/img/doctors/engenheiro ambiental.jpg" class="card-img-left" alt="Dr. Pedro Almeida" style="width: 35%; object-fit: cover; border-top-left-radius: 15px; border-bottom-left-radius: 15px;">
+                  <div class="card-body">
+                      <h5 class="card-title">Dr. Pedro Almeida</h5>
+                      <p class="text-muted">Engenheiro Ambiental</p>
+                      <p class="card-text">O Dr. Pedro Almeida é um especialista em soluções ambientais, com foco na sustentabilidade e no gerenciamento de recursos naturais. Com um doutorado em Engenharia Ambiental, ele tem sido uma peça chave em projetos que visam melhorar a qualidade do ar e da água em instalações de saúde, além de implementar práticas sustentáveis em diversos setores. Seu trabalho não só contribui para um ambiente mais saudável, mas também ajuda as organizações a cumprirem regulamentações ambientais rigorosas.</p>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Dr. Carlos Macedo -->
+          <div class="col-md-12 mb-5">
+              <div class="card shadow-lg d-flex flex-row" style="max-width: 100%; border-radius: 15px;">
+                  <img src="../assets/img/auditor.jpg" class="card-img-left" alt="Dr. Carlos Macedo" style="width: 35%; object-fit: cover; border-top-left-radius: 15px; border-bottom-left-radius: 15px;">
+                  <div class="card-body">
+                      <h5 class="card-title">Dr. Carlos Macedo</h5>
+                      <p class="text-muted">Auditor de Qualidade</p>
+                      <p class="card-text">Com anos de experiência em auditoria de qualidade em serviços de saúde, o Dr. Carlos Macedo tem se dedicado a promover os mais altos padrões de atendimento. Sua abordagem meticulosa e análise detalhada ajudaram muitas organizações a superar auditorias e a melhorar seus processos internos, garantindo a segurança dos pacientes e a qualidade do atendimento. Além disso, ele desenvolve treinamentos internos para preparar as equipes para aderir aos padrões de qualidade exigidos.</p>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Dra. Diana Santos -->
+          <div class="col-md-12 mb-5">
+              <div class="card shadow-lg d-flex flex-row" style="max-width: 100%; border-radius: 15px;">
+                  <img src="../assets/img/enfermeira.jpg" class="card-img-left" alt="Dra. Diana Santos" style="width: 35%; object-fit: cover; border-top-left-radius: 15px; border-bottom-left-radius: 15px;">
+                  <div class="card-body">
+                      <h5 class="card-title">Dra. Diana Santos</h5>
+                      <p class="text-muted">Enfermeira Auditora</p>
+                      <p class="card-text">A Dra. Diana Santos é uma enfermeira auditora com um olhar atento às melhores práticas em cuidados de saúde. Ela desempenha um papel essencial em garantir que os padrões de cuidados sejam seguidos rigorosamente, auditando processos e procedimentos dentro das unidades de saúde. Sua formação contínua e experiência prática em ambientes clínicos a tornam uma autoridade quando o assunto é a melhoria da qualidade dos serviços de enfermagem e atendimento ao paciente.</p>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Dra. Maria Peixoto -->
+          <div class="col-md-12 mb-5">
+              <div class="card shadow-lg d-flex flex-row" style="max-width: 100%; border-radius: 15px;">
+                  <img src="../assets/img/enfermeiraSegurança2.jpg" class="card-img-left" alt="Dra. Maria Peixoto" style="width: 35%; object-fit: cover; border-top-left-radius: 15px; border-bottom-left-radius: 15px;">
+                  <div class="card-body">
+                      <h5 class="card-title">Dra. Maria Peixoto</h5>
+                      <p class="text-muted">Enfermeira de Segurança do Paciente</p>
+                      <p class="card-text">A Dra. Maria Peixoto é uma especialista em segurança do paciente, com uma carreira focada na implementação de protocolos de segurança e práticas preventivas. Ela tem trabalhado em estreita colaboração com equipes médicas e administrativas para garantir que todos os procedimentos sejam realizados de forma segura, minimizando riscos e promovendo a saúde geral dos pacientes. Seu compromisso com a segurança é inabalável, e ela é uma defensora ativa na formação de novas políticas de segurança no setor da saúde.</p>
+                  </div>
+              </div>
+          </div>
       </div>
-    </div> <!-- .container -->
-  </div> <!-- .page-section -->
+  </div>
+</div>
+
+
+<!-- .page-section -->
 
   <div class="page-section">
     <div class="container">
