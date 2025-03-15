@@ -1,0 +1,38 @@
+/*Estilo para garantir um tamanho adequado dos gráficos*/
+/* Ajusta o tamanho dos cartões */
+    .card-body {
+        min-height: 350px; /* Aumentei o tamanho mínimo dos cartões */
+        padding: 20px;
+    }
+
+    canvas {
+        width: 100% !important;
+        height: 300px !important; /* Ajusta a altura dos gráficos */
+    }
+
+    .total-denuncias {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .legend-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px; /* Ajusta o espaçamento entre os itens */
+      }
+      
+      .color-box {
+        width: 25px; /* Ajusta o tamanho do quadrado de cor */
+        height: 25px;
+        margin-right: 10px; /* Ajusta o espaçamento entre o quadrado e o texto */
+        border-radius: 3px; /* Deixa os quadrados com bordas arredondadas */
+      }
+      
+      .legend-text {
+        font-size: 0.875rem; /* Tamanho do texto reduzido */
+        color: #333; /* Cor do texto */
+      }
+      
+      
+      
+      

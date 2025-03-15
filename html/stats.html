@@ -21,6 +21,8 @@
 
   <link rel="stylesheet" href="../assets/css/theme.css">
 
+  <link rel="stylesheet" href="../assets/css/stats.css">
+
 </head>
 <body>
     <!-- Carregar a biblioteca Chart.js -->
@@ -28,6 +30,8 @@
 
     <!-- Carregar o script stats.js após o carregamento da página -->
     <script src="../assets/js/stats.js"></script>
+
+
 
 
   <!-- Back to top button -->
@@ -127,91 +131,183 @@
 
 
   <div class="container py-5">
-    <!-- Seção: Número de Denúncias Feitas no Sistema -->
+    <!-- Cartão contendo o gráfico de denúncias ao longo do tempo e o número total de denúncias -->
     <div class="row justify-content-center mb-5">
-      <div class="col-lg-8">
-        <div class="card shadow-sm">
-          <div class="card-body d-flex">
-            <div class="col-md-6">
-              <canvas id="denunciasFeitasChart"></canvas>
+        <div class="col-lg-10"> <!-- Aumentei de col-lg-8 para col-lg-10 -->
+            <div class="card shadow-sm">
+                <div class="card-body d-flex">
+                    <!-- Gráfico -->
+                    <div class="col-md-6">
+                        <canvas id="denunciasTempoChart"></canvas>
+                    </div>
+                    <!-- Texto explicativo e total de denúncias -->
+                    <div class="col-md-6 d-flex flex-column justify-content-center">
+                        <h5 class="card-title text-center">Evolução das Denúncias</h5>
+                        <p class="text-center">Este gráfico mostra a evolução das denúncias ao longo dos meses. Aqui é possível visualizar tendências e padrões no número de denúncias feitas.</p>
+                        <p class="total-denuncias text-center"><strong>Total de Denúncias:</strong> <span id="totalDenuncias">0</span></p>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
-              <h5 class="card-title text-center">Número de Denúncias Feitas no Sistema</h5>
-              <p>Este gráfico representa o número total de denúncias feitas no sistema ao longo do tempo, independentemente do tipo de denúncia.</p>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  
-    <!-- Seção: Tipo de Denúncias Registradas -->
-    <div class="row justify-content-center mb-5">
-      <div class="col-lg-8">
-        <div class="card shadow-sm">
+
+<!-- Seção: Tipo de Denúncias Registadas --> 
+<div class="row justify-content-center mb-5">
+  <div class="col-lg-10">
+      <div class="card shadow-sm">
           <div class="card-body d-flex">
-            <div class="col-md-6">
-              <canvas id="tipoDenunciasChart"></canvas>
-            </div>
-            <div class="col-md-6">
-              <h5 class="card-title text-center">Tipo de Denúncias Registadas</h5>
-              <p>Este gráfico exibe os tipos de denúncias registradas no sistema, divididos por categorias como Auditorias, Monitorização e Incidentes.</p>
-            </div>
+              <!-- Coluna para o gráfico (à esquerda) -->
+              <div class="col-md-6">
+                  <canvas id="tipoDenunciasChart"></canvas>
+              </div>
+              
+              <!-- Coluna para o título e descrição das cores (à direita) -->
+              <div class="col-md-6 d-flex flex-column justify-content-center">
+                  <h5 class="card-title text-center">Tipo de Denúncias Registadas</h5>
+                  <p class="text-center">Este gráfico exibe os tipos de denúncias registradas no sistema.</p>
+
+                  <!-- Legenda das cores (duas colunas) -->
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="legend-item mb-2">
+                              <span class="color-box" style="background-color: #E6194B;"></span>
+                              <span class="legend-text">Auditoria da qualidade do ar</span>
+                          </div>
+                          <div class="legend-item mb-2">
+                              <span class="color-box" style="background-color: #3CB44B;"></span>
+                              <span class="legend-text">Auditoria das condições de higiene em hospitais</span>
+                          </div>
+                          <div class="legend-item mb-2">
+                              <span class="color-box" style="background-color: #FFE119;"></span>
+                              <span class="legend-text">Auditoria das condições de higiene em clínicas</span>
+                          </div>
+                          <div class="legend-item mb-2">
+                              <span class="color-box" style="background-color: #4363D8;"></span>
+                              <span class="legend-text">Auditoria das condições de higiene em centros de saúde</span>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="legend-item mb-2">
+                              <span class="color-box" style="background-color: #F58231;"></span>
+                              <span class="legend-text">Monitorização de instalações desportivas</span>
+                          </div>
+                          <div class="legend-item mb-2">
+                              <span class="color-box" style="background-color: #911EB4;"></span>
+                              <span class="legend-text">Monitorização de instalações recreativas</span>
+                          </div>
+                          <div class="legend-item mb-2">
+                              <span class="color-box" style="background-color: #42D4F4;"></span>
+                              <span class="legend-text">Registo de incidentes sanitários</span>
+                          </div>
+                          <div class="legend-item mb-2">
+                              <span class="color-box" style="background-color: #F032E6;"></span>
+                              <span class="legend-text">Registo de incidentes (falta de equipamentos médicos essenciais)</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </div>
-        </div>
       </div>
-    </div>
-  
+  </div>
+</div>
+
+
     <!-- Seção: Número de Auditorias Realizadas -->
     <div class="row justify-content-center mb-5">
-      <div class="col-lg-8">
-        <div class="card shadow-sm">
-          <div class="card-body d-flex">
-            <div class="col-md-6">
-              <canvas id="auditoriasRealizadasChart"></canvas>
+        <div class="col-lg-10">
+            <div class="card shadow-sm">
+                <div class="card-body d-flex">
+                    <div class="col-md-6">
+                        <canvas id="auditoriasRealizadasChart"></canvas>
+                    </div>
+                    <div class="col-md-6 d-flex flex-column justify-content-center">
+                        <h5 class="card-title text-center">Número de Denúncias Revistas</h5>
+                        <p class="text-center">Este gráfico compara o número de denúncias realizadas em relação às denúncias solicitadas, mas que ainda não foram realizadas.</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
-              <h5 class="card-title text-center">Número de Denuncias Revistas</h5>
-              <p>Este gráfico compara o número de denuncias realizadas em relação às denuncias solicitadas, mas que ainda não foram realizadas.</p>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  
-    <!-- Seção: Tipos de Auditorias Resolvidas -->
-    <div class="row justify-content-center mb-5">
-      <div class="col-lg-8">
-        <div class="card shadow-sm">
-          <div class="card-body d-flex">
-            <div class="col-md-6">
-              <canvas id="auditoriasResolvidasChart"></canvas>
-            </div>
-            <div class="col-md-6">
-              <h5 class="card-title text-center">Tipos de Auditorias Revistas</h5>
-              <p>Este gráfico ilustra a comparação entre os diferentes tipos de auditorias resolvidas, incluindo Auditoria da Qualidade do Ar, Monitorização de Instalações, e Incidentes Sanitários.</p>
-            </div>
-          </div>
+
+<!-- Seção: Tipos de Denúncias Resolvidas -->
+<div class="row justify-content-center mb-5">
+  <div class="col-lg-10">
+    <div class="card shadow-sm">
+      <div class="card-body d-flex">
+        <!-- Coluna para o gráfico (à esquerda) -->
+        <div class="col-md-6">
+          <canvas id="denunciasResolvidasChart"></canvas>
         </div>
-      </div>
-    </div>
-  
-    <!-- Seção: Tempo Médio de Resposta -->
-    <div class="row justify-content-center mb-5">
-      <div class="col-lg-8">
-        <div class="card shadow-sm">
-          <div class="card-body d-flex">
+        
+        <!-- Coluna para o título e descrição das cores (à direita) -->
+        <div class="col-md-6 d-flex flex-column justify-content-center">
+          <h5 class="card-title text-center">Tipos de Denúncias Resolvidas</h5>
+          <p class="text-center">Este gráfico mostra a quantidade de denúncias resolvidas por tipo.</p>
+
+          <!-- Legenda das cores (duas colunas) -->
+          <div class="row">
             <div class="col-md-6">
-              <canvas id="tempoMedioRespostaChart"></canvas>
+              <div class="legend-item mb-2">
+                <span class="color-box" style="background-color: #E6194B;"></span>
+                <span class="legend-text">Auditoria da qualidade do ar</span>
+              </div>
+              <div class="legend-item mb-2">
+                <span class="color-box" style="background-color: #3CB44B;"></span>
+                <span class="legend-text">Auditoria das condições de higiene em hospitais</span>
+              </div>
+              <div class="legend-item mb-2">
+                <span class="color-box" style="background-color: #FFE119;"></span>
+                <span class="legend-text">Auditoria das condições de higiene em clínicas</span>
+              </div>
+              <div class="legend-item mb-2">
+                <span class="color-box" style="background-color: #4363D8;"></span>
+                <span class="legend-text">Auditoria das condições de higiene em centros de saúde</span>
+              </div>
             </div>
             <div class="col-md-6">
-              <h5 class="card-title text-center">Tempo Médio de Resposta</h5>
-              <p>Este gráfico mostra o tempo médio de resposta entre a submissão de uma denúncia e a realização da auditoria correspondente, ajudando a medir a eficiência do processo.</p>
+              <div class="legend-item mb-2">
+                <span class="color-box" style="background-color: #F58231;"></span>
+                <span class="legend-text">Monitorização de instalações desportivas</span>
+              </div>
+              <div class="legend-item mb-2">
+                <span class="color-box" style="background-color: #911EB4;"></span>
+                <span class="legend-text">Monitorização de instalações recreativas</span>
+              </div>
+              <div class="legend-item mb-2">
+                <span class="color-box" style="background-color: #42D4F4;"></span>
+                <span class="legend-text">Registo de incidentes sanitários</span>
+              </div>
+              <div class="legend-item mb-2">
+                <span class="color-box" style="background-color: #F032E6;"></span>
+                <span class="legend-text">Registo de incidentes (falta de equipamentos médicos essenciais)</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<!-- Seção: Tempo Médio de Resposta em Dias -->
+<div class="row justify-content-center mb-5">
+  <div class="col-lg-10">
+      <div class="card shadow-sm">
+          <div class="card-body d-flex">
+              <div class="col-md-6">
+                  <canvas id="tempoMedioRespostaChart"></canvas>
+              </div>
+              <div class="col-md-6 d-flex flex-column justify-content-center">
+                  <h5 class="card-title text-center">Tempo Médio de Resposta</h5>
+                  <p class="text-center">Este gráfico mostra o tempo médio de resposta (em dias) entre o registro e a resolução das denúncias.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
   
   
   
