@@ -1,0 +1,92 @@
+/* Estilos gerais para o cartão */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+  }
+  
+  /* Estilo para o título do cartão */
+  .card-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para o conteúdo da lista de contacto */
+  .card-body ul {
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .card-body ul li {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+  
+  /* Estilo para os ícones */
+  .card-body ul li i {
+    color: #20c997; /* Cor do ícone igual à do botão */
+    margin-right: 10px;
+    font-size: 1.2rem;
+  }
+  
+  /* Estilos para o formulário */
+  .contact-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-form label {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo para o botão */
+  .contact-form button {
+    background-color: #20c997; /* Cor do botão */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .contact-form button:hover {
+    background-color: #20c997;
+  }
+  
+  /* Estilos para o layout responsivo */
+  @media (max-width: 991px) {
+    .col-lg-4 {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    
+    .col-lg-8 {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .contact-form {
+      padding: 15px;
+    }
+    .card-body {
+      padding: 20px;
+    }
+  }
+  
