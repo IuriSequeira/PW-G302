@@ -1,95 +1,34 @@
-/* Card Styling */
-.card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin-top: 30px;
-    overflow: hidden;
-  }
-  
-  /* Card Header */
-  .card-header {
-    background-color: #f7f7f7;
-    padding: 20px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .card-header .card-title {
-    font-size: 1.8rem;
-    color: #333;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  /* Flex Layout for Card Body */
-  .card-body {
-    display: flex;
-    padding: 20px;
-  }
-  
-  /* Styling for Contact Info Section */
-  .contact-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    border-right: 1px solid #ddd;
-    background-color: #f9f9f9;
-  }
-  
-  .contact-info ul {
-    padding-left: 0;
-  }
-  
-  .contact-info ul li {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 15px;
-  }
-  
-  .contact-info ul li i {
-    color: #007bff;
-    margin-right: 10px;
-  }
-  
-  /* Styling for Contact Form */
-  .contact-form {
-    padding: 20px;
-  }
-  
-  .contact-form .form-control {
-    margin-bottom: 15px;
-    border-radius: 5px;
-  }
-  
-  .contact-form label {
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 5px;
-  }
-  
-  .contact-form .btn-primary {
-    background-color: #007bff;
-    border: none;
-    padding: 12px 20px;
-    font-size: 1.1rem;
-    color: white;
-    width: 100%;
-    border-radius: 5px;
-  }
-  
-  .contact-form .btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Ensuring Responsiveness */
-  @media (max-width: 767px) {
-    .card-body {
-      flex-direction: column;
-    }
-  
-    .contact-info, .contact-form {
-      margin-bottom: 20px;
-    }
-  }
-  
+/*Estilo para garantir um tamanho adequado dos gráficos*/
+/* Ajusta o tamanho dos cartões */
+.card-body {
+  min-height: 350px; /* Aumentei o tamanho mínimo dos cartões */
+  padding: 20px;
+}
+
+canvas {
+  width: 100% !important;
+  height: 300px !important; /* Ajusta a altura dos gráficos */
+}
+
+.total-denuncias {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Ajusta o espaçamento entre os itens */
+}
+
+.color-box {
+  width: 25px; /* Ajusta o tamanho do quadrado de cor */
+  height: 25px;
+  margin-right: 10px; /* Ajusta o espaçamento entre o quadrado e o texto */
+  border-radius: 3px; /* Deixa os quadrados com bordas arredondadas */
+}
+
+.legend-text {
+  font-size: 0.875rem; /* Tamanho do texto reduzido */
+  color: #333; /* Cor do texto */
+}
