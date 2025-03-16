@@ -1,0 +1,5 @@
+/* Adiciona margens externas (espaçamento) nos cartões */
+.service-card {
+    margin: 20px; /* Espaçamento de 20px ao redor de cada cartão */
+  }
+  
