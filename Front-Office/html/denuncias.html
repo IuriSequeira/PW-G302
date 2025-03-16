@@ -102,7 +102,7 @@
       <div class="container text-center wow fadeInUp">
         <nav aria-label="Breadcrumb">
           <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
-            <li class="breadcrumb-item"><a href="index.html">Início</a></li>
+            <li class="breadcrumb-item"><a href="index.html">Menu</a></li>
             <li class="breadcrumb-item active" aria-current="page">Denúncia</li>
           </ol>
         </nav>
@@ -113,46 +113,60 @@
 
   <div class="page-section bg-light">
     <div class="container">
-        <h1 class="text-center">Fazer uma Denúncia</h1>
-        <form class="main-form">
-            <div class="row mt-5">
-                <div class="col-12 col-sm-6 py-2">
-                    <input type="text" class="form-control" placeholder="Nome Completo" required>
+        <div class="card shadow-lg p-4 border-0 rounded-lg">
+            <h2 class="font-weight-bold text-center text-primary mb-4 animate__animated animate__fadeInDown">
+              Fazer uma Denúncia
+            </h2>
+            <form class="main-form">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Nome Completo</label>
+                        <input type="text" class="form-control" placeholder="Nome Completo" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Email</label>
+                        <input type="email" class="form-control" placeholder="Email" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Data do Ocorrido</label>
+                        <input type="date" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Categoria</label>
+                        <select name="categoria" class="form-control" required>
+                            <option value="">Selecione a Categoria</option>
+                            <option value="qualidade">Qualidade do Ar</option>
+                            <option value="higiene">Condições de Higiene</option>
+                            <option value="infraestrutura">Infraestrutura de Instalações</option>
+                            <option value="seguranca">Segurança e Acessibilidade</option>
+                            <option value="incidente">Incidente Sanitário</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Localização</label>
+                        <input type="text" class="form-control" placeholder="Localização" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Código Postal</label>
+                        <input type="text" class="form-control" placeholder="Código Postal" required>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label>Explique a Ocorrência</label>
+                        <textarea name="descricao" class="form-control" rows="4" placeholder="Detalhe o ocorrido" required></textarea>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label>Anexos (Imagem/Vídeo)</label>
+                        <input type="file" class="form-control" accept="image/*,video/*" multiple>
+                    </div>
                 </div>
-                <div class="col-12 col-sm-6 py-2">
-                    <input type="email" class="form-control" placeholder="Email" required>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mt-3 px-4">Denunciar</button>
                 </div>
-                <div class="col-12 col-sm-6 py-2">
-                    <input type="date" class="form-control" required>
-                </div>
-                <div class="col-12 col-sm-6 py-2">
-                    <select name="categoria" class="custom-select" required>
-                        <option value="">Selecione a Categoria</option>
-                        <option value="qualidade">Qualidade do Ar</option>
-                        <option value="higiene">Condições de Higiene</option>
-                        <option value="infraestrutura">Infraestrutura de Instalações</option>
-                        <option value="seguranca">Segurança e Acessibilidade</option>
-                        <option value="incidente">Incidente Sanitário</option>
-                    </select>
-                </div>
-                <div class="col-12 col-sm-6 py-2">
-                    <input type="text" class="form-control" placeholder="Localização" required>
-                </div>
-                <div class="col-12 col-sm-6 py-2">
-                    <input type="text" class="form-control" placeholder="Código Postal" required>
-                </div>
-                <div class="col-12 py-2">
-                    <textarea name="descricao" class="form-control" rows="6" placeholder="Explique a ocorrência" required></textarea>
-                </div>
-                <div class="col-12 py-2">
-                    <label>Anexos (Imagem/Vídeo)</label>
-                    <input type="file" class="form-control" accept="image/*,video/*" multiple>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary mt-3">Denunciar</button>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
+
   
 
   <div class="page-section banner-home bg-image" style="background-image: url(../assets/img/banner-pattern.svg);">
