@@ -151,65 +151,66 @@
         </div>
     </div>
 
-<!-- Seção: Tipo de Denúncias Registadas --> 
-<div class="row justify-content-center mb-5">
-  <div class="col-lg-10">
-      <div class="card shadow-sm">
-          <div class="card-body d-flex">
-              <!-- Coluna para o gráfico (à esquerda) -->
-              <div class="col-md-6">
-                  <canvas id="tipoDenunciasChart"></canvas>
-              </div>
-              
-              <!-- Coluna para o título e descrição das cores (à direita) -->
-              <div class="col-md-6 d-flex flex-column justify-content-center">
-                  <h5 class="card-title text-center">Tipo de Denúncias Registadas</h5>
-                  <p class="text-center">Este gráfico exibe os tipos de denúncias registradas no sistema.</p>
 
-                  <!-- Legenda das cores (duas colunas) -->
-                  <div class="row">
-                      <div class="col-md-6">
-                          <div class="legend-item mb-2">
-                              <span class="color-box" style="background-color: #E6194B;"></span>
-                              <span class="legend-text">Auditoria da qualidade do ar</span>
+    <!-- Seção: Tipo de Denúncias Registadas --> 
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10">
+          <div class="card shadow-sm">
+              <div class="card-body d-flex">
+                  <!-- Coluna para o gráfico (à esquerda) -->
+                  <div class="col-md-6">
+                      <canvas id="tipoDenunciasChart"></canvas>
+                  </div>
+                  
+                  <!-- Coluna para o título e descrição das cores (à direita) -->
+                  <div class="col-md-6 d-flex flex-column justify-content-center">
+                      <h5 class="card-title text-center">Tipo de Denúncias Registadas</h5>
+                      <p class="text-center">Este gráfico exibe os tipos de denúncias registradas no sistema.</p>
+
+                      <!-- Legenda das cores (duas colunas) -->
+                      <div class="row">
+                          <div class="col-md-6">
+                              <div class="legend-item mb-2">
+                                  <span class="color-box" style="background-color: #E6194B;"></span>
+                                  <span class="legend-text">Auditoria da qualidade do ar</span>
+                              </div>
+                              <div class="legend-item mb-2">
+                                  <span class="color-box" style="background-color: #3CB44B;"></span>
+                                  <span class="legend-text">Auditoria das condições de higiene em hospitais</span>
+                              </div>
+                              <div class="legend-item mb-2">
+                                  <span class="color-box" style="background-color: #FFE119;"></span>
+                                  <span class="legend-text">Auditoria das condições de higiene em clínicas</span>
+                              </div>
+                              <div class="legend-item mb-2">
+                                  <span class="color-box" style="background-color: #4363D8;"></span>
+                                  <span class="legend-text">Auditoria das condições de higiene em centros de saúde</span>
+                              </div>
                           </div>
-                          <div class="legend-item mb-2">
-                              <span class="color-box" style="background-color: #3CB44B;"></span>
-                              <span class="legend-text">Auditoria das condições de higiene em hospitais</span>
-                          </div>
-                          <div class="legend-item mb-2">
-                              <span class="color-box" style="background-color: #FFE119;"></span>
-                              <span class="legend-text">Auditoria das condições de higiene em clínicas</span>
-                          </div>
-                          <div class="legend-item mb-2">
-                              <span class="color-box" style="background-color: #4363D8;"></span>
-                              <span class="legend-text">Auditoria das condições de higiene em centros de saúde</span>
-                          </div>
-                      </div>
-                      <div class="col-md-6">
-                          <div class="legend-item mb-2">
-                              <span class="color-box" style="background-color: #F58231;"></span>
-                              <span class="legend-text">Monitorização de instalações desportivas</span>
-                          </div>
-                          <div class="legend-item mb-2">
-                              <span class="color-box" style="background-color: #911EB4;"></span>
-                              <span class="legend-text">Monitorização de instalações recreativas</span>
-                          </div>
-                          <div class="legend-item mb-2">
-                              <span class="color-box" style="background-color: #42D4F4;"></span>
-                              <span class="legend-text">Registo de incidentes sanitários</span>
-                          </div>
-                          <div class="legend-item mb-2">
-                              <span class="color-box" style="background-color: #F032E6;"></span>
-                              <span class="legend-text">Registo de incidentes (falta de equipamentos médicos essenciais)</span>
+                          <div class="col-md-6">
+                              <div class="legend-item mb-2">
+                                  <span class="color-box" style="background-color: #F58231;"></span>
+                                  <span class="legend-text">Monitorização de instalações desportivas</span>
+                              </div>
+                              <div class="legend-item mb-2">
+                                  <span class="color-box" style="background-color: #911EB4;"></span>
+                                  <span class="legend-text">Monitorização de instalações recreativas</span>
+                              </div>
+                              <div class="legend-item mb-2">
+                                  <span class="color-box" style="background-color: #42D4F4;"></span>
+                                  <span class="legend-text">Registo de incidentes sanitários</span>
+                              </div>
+                              <div class="legend-item mb-2">
+                                  <span class="color-box" style="background-color: #F032E6;"></span>
+                                  <span class="legend-text">Registo de incidentes (falta de equipamentos médicos essenciais)</span>
+                              </div>
                           </div>
                       </div>
                   </div>
               </div>
           </div>
       </div>
-  </div>
-</div>
+    </div>
 
 
     <!-- Seção: Número de Auditorias Realizadas -->
@@ -229,129 +230,85 @@
         </div>
     </div>
 
-<!-- Seção: Tipos de Denúncias Resolvidas -->
-<div class="row justify-content-center mb-5">
-  <div class="col-lg-10">
-    <div class="card shadow-sm">
-      <div class="card-body d-flex">
-        <!-- Coluna para o gráfico (à esquerda) -->
-        <div class="col-md-6">
-          <canvas id="denunciasResolvidasChart"></canvas>
-        </div>
-        
-        <!-- Coluna para o título e descrição das cores (à direita) -->
-        <div class="col-md-6 d-flex flex-column justify-content-center">
-          <h5 class="card-title text-center">Tipos de Denúncias Resolvidas</h5>
-          <p class="text-center">Este gráfico mostra a quantidade de denúncias resolvidas por tipo.</p>
+    <!-- Seção: Tipos de Denúncias Resolvidas -->
+    <div class="row justify-content-center mb-5">
+    <div class="col-lg-10">
+      <div class="card shadow-sm">
+        <div class="card-body d-flex">
+          <!-- Coluna para o gráfico (à esquerda) -->
+          <div class="col-md-6">
+            <canvas id="denunciasResolvidasChart"></canvas>
+          </div>
+          
+          <!-- Coluna para o título e descrição das cores (à direita) -->
+          <div class="col-md-6 d-flex flex-column justify-content-center">
+            <h5 class="card-title text-center">Tipos de Denúncias Resolvidas</h5>
+            <p class="text-center">Este gráfico mostra a quantidade de denúncias resolvidas por tipo.</p>
 
-          <!-- Legenda das cores (duas colunas) -->
-          <div class="row">
-            <div class="col-md-6">
-              <div class="legend-item mb-2">
-                <span class="color-box" style="background-color: #E6194B;"></span>
-                <span class="legend-text">Auditoria da qualidade do ar</span>
+            <!-- Legenda das cores (duas colunas) -->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="legend-item mb-2">
+                  <span class="color-box" style="background-color: #E6194B;"></span>
+                  <span class="legend-text">Auditoria da qualidade do ar</span>
+                </div>
+                <div class="legend-item mb-2">
+                  <span class="color-box" style="background-color: #3CB44B;"></span>
+                  <span class="legend-text">Auditoria das condições de higiene em hospitais</span>
+                </div>
+                <div class="legend-item mb-2">
+                  <span class="color-box" style="background-color: #FFE119;"></span>
+                  <span class="legend-text">Auditoria das condições de higiene em clínicas</span>
+                </div>
+                <div class="legend-item mb-2">
+                  <span class="color-box" style="background-color: #4363D8;"></span>
+                  <span class="legend-text">Auditoria das condições de higiene em centros de saúde</span>
+                </div>
               </div>
-              <div class="legend-item mb-2">
-                <span class="color-box" style="background-color: #3CB44B;"></span>
-                <span class="legend-text">Auditoria das condições de higiene em hospitais</span>
-              </div>
-              <div class="legend-item mb-2">
-                <span class="color-box" style="background-color: #FFE119;"></span>
-                <span class="legend-text">Auditoria das condições de higiene em clínicas</span>
-              </div>
-              <div class="legend-item mb-2">
-                <span class="color-box" style="background-color: #4363D8;"></span>
-                <span class="legend-text">Auditoria das condições de higiene em centros de saúde</span>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="legend-item mb-2">
-                <span class="color-box" style="background-color: #F58231;"></span>
-                <span class="legend-text">Monitorização de instalações desportivas</span>
-              </div>
-              <div class="legend-item mb-2">
-                <span class="color-box" style="background-color: #911EB4;"></span>
-                <span class="legend-text">Monitorização de instalações recreativas</span>
-              </div>
-              <div class="legend-item mb-2">
-                <span class="color-box" style="background-color: #42D4F4;"></span>
-                <span class="legend-text">Registo de incidentes sanitários</span>
-              </div>
-              <div class="legend-item mb-2">
-                <span class="color-box" style="background-color: #F032E6;"></span>
-                <span class="legend-text">Registo de incidentes (falta de equipamentos médicos essenciais)</span>
+              <div class="col-md-6">
+                <div class="legend-item mb-2">
+                  <span class="color-box" style="background-color: #F58231;"></span>
+                  <span class="legend-text">Monitorização de instalações desportivas</span>
+                </div>
+                <div class="legend-item mb-2">
+                  <span class="color-box" style="background-color: #911EB4;"></span>
+                  <span class="legend-text">Monitorização de instalações recreativas</span>
+                </div>
+                <div class="legend-item mb-2">
+                  <span class="color-box" style="background-color: #42D4F4;"></span>
+                  <span class="legend-text">Registo de incidentes sanitários</span>
+                </div>
+                <div class="legend-item mb-2">
+                  <span class="color-box" style="background-color: #F032E6;"></span>
+                  <span class="legend-text">Registo de incidentes (falta de equipamentos médicos essenciais)</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+    </div>
 
-<!-- Seção: Tempo Médio de Resposta em Dias -->
-<div class="row justify-content-center mb-5">
-  <div class="col-lg-10">
-      <div class="card shadow-sm">
-          <div class="card-body d-flex">
-              <div class="col-md-6">
-                  <canvas id="tempoMedioRespostaChart"></canvas>
-              </div>
-              <div class="col-md-6 d-flex flex-column justify-content-center">
-                  <h5 class="card-title text-center">Tempo Médio de Resposta</h5>
-                  <p class="text-center">Este gráfico mostra o tempo médio de resposta (em dias) entre o registro e a resolução das denúncias.</p>
+    <!-- Seção: Tempo Médio de Resposta em Dias -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10">
+          <div class="card shadow-sm">
+              <div class="card-body d-flex">
+                  <div class="col-md-6">
+                      <canvas id="tempoMedioRespostaChart"></canvas>
+                  </div>
+                  <div class="col-md-6 d-flex flex-column justify-content-center">
+                      <h5 class="card-title text-center">Tempo Médio de Resposta</h5>
+                      <p class="text-center">Este gráfico mostra o tempo médio de resposta (em dias) entre o registro e a resolução das denúncias.</p>
+                  </div>
               </div>
           </div>
       </div>
+    </div>
   </div>
-</div>
-
-
 
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <div class="page-section banner-home bg-image" style="background-image: url(../assets/img/banner-pattern.svg);">
     <div class="container py-5 py-lg-0">
       <div class="row align-items-center">
@@ -399,9 +356,10 @@
           </div>          
         <div class="col-sm-6 col-lg-3 py-3">
           <h5>Contactos</h5>
-          <p class="footer-link mt-2">Av. da Universidade, Azurém</p>
+          <a href="#" class="footer-link">Av. da Universidade, Azurém</a>
           <a href="#" class="footer-link">4800-058</a>
           <a href="#" class="footer-link">EyesEverywhere@Contacto.pt</a>
+          <a href="#" class="footer-link">912345678</a>
 
           <h5 class="mt-3">Redes Sociais</h5>
           <div class="footer-sosmed mt-3">
@@ -419,6 +377,8 @@
       <p id="copyright">Copyright &copy; 2025 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>
     </div>
   </footer>
+
+
 
 <script src="../assets/js/jquery-3.5.1.min.js"></script>
 

@@ -1,13 +1,36 @@
-/*Estilo para garantir um tamanho adequado dos gráficos*/
-/* Ajusta o tamanho dos cartões */
+/* Garante que a página ocupa toda a largura */
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ajusta a largura da banner-home */
+.banner-home {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0; /* Remover espaçamento interno */
+}
+
+
+/* Se .page-section estiver a limitar a largura */
+.page-section {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Estilo para garantir um tamanho adequado dos gráficos */
 .card-body {
-  min-height: 350px; /* Aumentei o tamanho mínimo dos cartões */
+  min-height: 350px;
   padding: 20px;
 }
 
 canvas {
   width: 100% !important;
-  height: 300px !important; /* Ajusta a altura dos gráficos */
+  height: 300px !important;
 }
 
 .total-denuncias {
@@ -18,17 +41,19 @@ canvas {
 .legend-item {
   display: flex;
   align-items: center;
-  margin-bottom: 10px; /* Ajusta o espaçamento entre os itens */
+  margin-bottom: 10px;
 }
 
 .color-box {
-  width: 25px; /* Ajusta o tamanho do quadrado de cor */
+  width: 25px;
   height: 25px;
-  margin-right: 10px; /* Ajusta o espaçamento entre o quadrado e o texto */
-  border-radius: 3px; /* Deixa os quadrados com bordas arredondadas */
+  margin-right: 10px;
+  border-radius: 3px;
 }
 
 .legend-text {
-  font-size: 0.875rem; /* Tamanho do texto reduzido */
-  color: #333; /* Cor do texto */
+  font-size: 0.875rem;
+  color: #333;
 }
+
+
