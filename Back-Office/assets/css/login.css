@@ -1,0 +1,43 @@
+/* Garante que o botão tenha um vermelho mais intenso */
+.btn-danger {
+    background-color: #ff0000 !important; /* Cor vermelha forte */
+    border-color: #ff0000 !important; /* Borda da mesma cor */
+    color: white; /* Cor do texto em branco */
+}
+
+/* Cor ao passar o rato (hover) */
+.btn-danger:hover {
+    background-color: #e60000 !important; /* Vermelho mais escuro ao passar o rato */
+    border-color: #e60000 !important;
+}
+
+.btn-custom {
+    background-color: #07be94 !important; /* Cor personalizada */
+    border-color: #07be94 !important;
+    color: white !important; /* Garante que o texto fique branco */
+}
+
+.btn-custom:hover {
+    background-color: #05a57c !important; /* Cor mais escura ao passar o rato */
+    border-color: #05a57c !important;
+}
+
+.text-link-custom {
+    color: #07be94 !important; /* Aplica a cor personalizada */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+.text-link-custom:hover {
+    color: #05a57c !important; /* Muda ligeiramente a cor ao passar o rato */
+}
+
+/* Muda a cor do checkbox quando marcado */
+.form-check-input:checked {
+    background-color: #07be94 !important;
+    border-color: #07be94 !important;
+}
+
+/* Muda a cor do label ao clicar */
+.form-check-input:checked + .form-check-label {
+    color: #07be94 !important;
+}
