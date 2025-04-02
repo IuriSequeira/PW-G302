@@ -1,3 +1,4 @@
+/* Sidebar */
 .sidebar {
     background: linear-gradient(180deg, #07be94 0%, #048c6a 100%);
     width: 250px;
@@ -6,10 +7,12 @@
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Item de navegação */
 .nav-item {
     margin: 10px 0;
 }
 
+/* Link de navegação */
 .nav-link {
     display: flex;
     align-items: center;
@@ -20,26 +23,32 @@
     transition: all 0.3s ease-in-out;
 }
 
+/* Hover nos links de navegação */
 .nav-link:hover {
     background-color: rgba(255, 255, 255, 0.15);
     transform: translateX(5px);
     box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
 }
 
+/* Ícones dos links de navegação */
 .nav-icon svg {
     margin-right: 10px;
     transition: transform 0.3s ease-in-out;
+    fill: rgba(7, 190, 148, 1); /* Cor verde mais forte, similar ao fundo */
 }
 
+/* Hover nos ícones de navegação */
 .nav-link:hover .nav-icon svg {
     transform: scale(1.2);
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
 }
 
+/* Submenu Toggle */
 .submenu-toggle {
     position: relative;
 }
 
+/* Animação da seta do submenu */
 .submenu-toggle .submenu-arrow svg {
     transition: transform 0.3s;
 }
@@ -48,39 +57,71 @@
     transform: rotate(180deg);
 }
 
+/* Submenu */
 .submenu {
-    padding-left: 20px;
-    display: none;
+    max-height: 0;
+    overflow: hidden;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    background-color: rgba(7, 190, 148, 0.8); /* Verde mais forte para o submenu */
+    padding-left: 20px;
 }
 
+/* Submenu visível */
 .submenu.show {
-    display: block;
+    max-height: 500px;
     opacity: 1;
 }
 
+/* Links do submenu */
 .submenu-item .submenu-link {
     padding: 8px;
-    color: white;
+    color: white !important;
     text-decoration: none;
     display: block;
     border-radius: 6px;
-    transition: background 0.3s;
+    font-weight: normal;
+    background-color: transparent;
+    transition: background 0.3s ease;
 }
 
+/* Hover nos links do submenu */
 .submenu-item .submenu-link:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.3); /* Um verde mais intenso no hover */
 }
 
+/* Efeito hover para o botão principal */
 .app-btn-primary {
-    background-color: #07be94 !important; /* Altera a cor de fundo */
-    border-color: #07be94 !important; /* Garante que a borda tem a mesma cor */
-    color: white !important; /* Mantém o texto visível */
-  }
-  
-  .app-btn-primary:hover {
-    background-color: #059c7a !important; /* Uma cor ligeiramente mais escura no hover */
+    background-color: #07be94 !important;
+    border-color: #07be94 !important;
+    color: white !important;
+}
+
+/* Hover para o botão principal */
+.app-btn-primary:hover {
+    background-color: #059c7a !important;
     border-color: #059c7a !important;
-  }
-  
+}
+
+/* Ícones dentro do submenu */
+.submenu.show .nav-icon svg {
+    fill: rgba(7, 190, 148, 1); /* Garantir que os ícones dentro do submenu também ficam com o verde correto */
+}
+
+/* Submenu ativo */
+.submenu-item.active .submenu-link {
+    background-color: rgba(7, 190, 148, 1); /* Fundo verde mais intenso para submenu ativo */
+    color: white !important;
+}
+
+/* Efeito de hover no submenu */
+.submenu-item.active .submenu-link:hover {
+    background-color: rgba(7, 190, 148, 1); /* Mesmo tom de verde intenso no hover */
+}
+
+/* Alteração no texto do submenu */
+.submenu-item .submenu-link:active,
+.nav-link:active {
+    color: white !important; /* Garantir que o texto não mude de cor */
+    background-color: rgba(7, 190, 148, 0.8); /* Fundo verde mais forte e saturado */
+}

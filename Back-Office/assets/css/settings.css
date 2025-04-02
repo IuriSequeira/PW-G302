@@ -125,3 +125,56 @@
     color: white !important; /* Garantir que o texto não mude de cor */
     background-color: rgba(7, 190, 148, 0.8); /* Fundo verde mais forte e saturado */
 }
+
+/* Estilo para os checkboxes */
+.form-check-input {
+    background-color: #fff; /* Cor de fundo padrão (branco) */
+    border-color: #ccc; /* Cor de borda padrão (cinza claro) */
+}
+
+/* Estilo para os checkboxes quando estão marcados */
+.form-check-input:checked {
+    background-color: #07be94; /* Cor de fundo verde quando marcado */
+    border-color: #07be94; /* Cor da borda verde quando marcado */
+}
+
+/* Estilo para os switches (checkboxes com estilo de alternância) */
+.form-check-input.form-switch {
+    background-color: #ddd; /* Cor de fundo para o switch não ativado */
+    border-color: #ddd; /* Cor de borda para o switch não ativado */
+}
+
+/* Estilo para o switch quando está ativado */
+.form-check-input.form-switch:checked {
+    background-color: #07be94; /* Cor de fundo do switch ativado */
+    border-color: #07be94; /* Cor da borda do switch ativado */
+}
+
+/* Estilo para o estado de hover do checkbox */
+.form-check-input:hover {
+    background-color: #f0f0f0; /* Cor de fundo levemente escurecida no hover */
+    border-color: #bbb; /* Cor da borda levemente escurecida no hover */
+}
+
+/* Estilo para o label do checkbox para combinar com a cor */
+.form-check-label {
+    color: #333; /* Cor de texto padrão */
+}
+
+/* Estilo para o label do switch para combinar com a cor */
+.form-check-label.form-switch {
+    color: #333; /* Cor de texto padrão */
+}
+
+/* Estilo para os links "Saber mais" dentro da classe .section-intro */
+.section-intro a {
+    color: #07be94; /* Cor verde desejada */
+    text-decoration: none; /* Remove o sublinhado do link */
+    transition: color 0.3s ease; /* Adiciona transição suave na cor */
+}
+
+/* Efeito de hover para o link */
+.section-intro a:hover {
+    color: #059c7a; /* Cor mais escura no hover */
+    text-decoration: underline; /* Adiciona sublinhado ao passar o rato por cima */
+}
