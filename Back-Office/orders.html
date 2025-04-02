@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
-    <title>Portal - Bootstrap 5 Admin Dashboard Template For Developers</title>
+    <title>Menu Administradores</title>
     
     <!-- Meta -->
     <meta charset="utf-8">
@@ -10,13 +10,14 @@
     
     <meta name="description" content="Portal - Bootstrap 5 Admin Dashboard Template For Developers">
     <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
-    <link rel="shortcut icon" href="favicon.ico"> 
+    <link rel="icon" href="assets/images/Icon.png" type="image/png">
     
     <!-- FontAwesome JS-->
     <script defer src="assets/plugins/fontawesome/js/all.min.js"></script>
     
     <!-- App CSS -->  
     <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
+	<link id="theme-style" rel="stylesheet" href="assets/css/orders.css">
 
 </head> 
 
@@ -160,7 +161,7 @@
 	        <div class="sidepanel-inner d-flex flex-column">
 		        <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
 		        <div class="app-branding">
-		            <a class="app-logo" href="index.html"><img class="logo-icon me-2" src="assets/images/app-logo.svg" alt="logo"><span class="logo-text">PORTAL</span></a>
+		            <a class="app-logo" href="index.html"><img class="logo-icon me-2" src="assets/images/Icon.png" alt="logo"><span class="logo-text">EyesEverywere</span></a>
 	
 		        </div><!--//app-branding-->  
 			    <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
@@ -174,7 +175,7 @@
 		  <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
 		</svg>
 						         </span>
-		                         <span class="nav-link-text">Overview</span>
+		                         <span class="nav-link-text">Menu</span>
 					        </a><!--//nav-link-->
 					    </li><!--//nav-item-->
 					    <li class="nav-item">
@@ -186,12 +187,12 @@
   <path fill-rule="evenodd" d="M13.81 4H2.19a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zM2.19 3A2 2 0 0 0 .198 5.181l.637 7A2 2 0 0 0 2.826 14h10.348a2 2 0 0 0 1.991-1.819l.637-7A2 2 0 0 0 13.81 3H2.19z"/>
 </svg>
 						         </span>
-		                         <span class="nav-link-text">Docs</span>
+		                         <span class="nav-link-text">Relatórios de denúncias</span>
 					        </a><!--//nav-link-->
 					    </li><!--//nav-item-->
 					    <li class="nav-item">
 					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-					        <a class="nav-link active" href="orders.html">
+					        <a class="nav-link" href="orders.html">
 						        <span class="nav-icon">
 						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
@@ -201,7 +202,7 @@
   <circle cx="3.5" cy="10.5" r=".5"/>
 </svg>
 						         </span>
-		                         <span class="nav-link-text">Orders</span>
+		                         <span class="nav-link-text">Inspeções Programadas</span>
 					        </a><!--//nav-link-->
 					    </li><!--//nav-item-->
 					    <li class="nav-item has-submenu">
@@ -214,7 +215,7 @@
 	  <path d="M6 0h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1H4a2 2 0 0 1 2-2z"/>
 	</svg>
 						         </span>
-		                         <span class="nav-link-text">Pages</span>
+		                         <span class="nav-link-text">Clientes e Empresas</span>
 		                         <span class="submenu-arrow">
 		                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 	  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
@@ -223,10 +224,9 @@
 					        </a><!--//nav-link-->
 					        <div id="submenu-1" class="collapse submenu submenu-1" data-bs-parent="#menu-accordion">
 						        <ul class="submenu-list list-unstyled">
-							        <li class="submenu-item"><a class="submenu-link" href="notifications.html">Notifications</a></li>
-							        <li class="submenu-item"><a class="submenu-link" href="account.html">Account</a></li>
-							        <li class="submenu-item"><a class="submenu-link" href="settings.html">Settings</a></li>
-							        
+							        <li class="submenu-item"><a class="submenu-link" href="notifications.html">Notificações</a></li>
+							        <li class="submenu-item"><a class="submenu-link" href="account.html">Conta</a></li>
+							        <li class="submenu-item"><a class="submenu-link" href="settings.html">Definições</a></li>
 						        </ul>
 					        </div>
 					    </li><!--//nav-item-->
@@ -239,7 +239,7 @@
 	  <path fill-rule="evenodd" d="M6 1H1v3h5V1zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12h-5v3h5v-3zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8H1v7h5V8zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6h-5v7h5V1zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z"/>
 	</svg>
 						         </span>
-		                         <span class="nav-link-text">External</span>
+		                         <span class="nav-link-text">Normas e Regulamentos</span>
 		                         <span class="submenu-arrow">
 		                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 	  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
@@ -255,7 +255,8 @@
 						        </ul>
 					        </div>
 					    </li><!--//nav-item-->
-					    
+
+					   
 					    <li class="nav-item">
 					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
 					        <a class="nav-link" href="charts.html">
@@ -264,9 +265,10 @@
 	  <path fill-rule="evenodd" d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"/>
 	</svg>
 						         </span>
-		                         <span class="nav-link-text">Charts</span>
+		                         <span class="nav-link-text">Gráficos</span>
 					        </a><!--//nav-link-->
 					    </li><!--//nav-item-->
+					    
 					    <li class="nav-item">
 					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
 					        <a class="nav-link" href="help.html">
@@ -276,9 +278,9 @@
   <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
 </svg>
 						         </span>
-		                         <span class="nav-link-text">Help</span>
+		                         <span class="nav-link-text">Ajuda</span>
 					        </a><!--//nav-link-->
-					    </li><!--//nav-item-->
+					    </li><!--//nav-item-->					    
 				    </ul><!--//app-menu-->
 			    </nav><!--//app-nav-->
 			    <div class="app-sidepanel-footer">
@@ -293,7 +295,7 @@
 	  <path fill-rule="evenodd" d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z"/>
 	</svg>
 							        </span>
-			                        <span class="nav-link-text">Settings</span>
+			                        <span class="nav-link-text">Definições</span>
 						        </a><!--//nav-link-->
 						    </li><!--//nav-item-->
 						    <li class="nav-item">
@@ -305,7 +307,7 @@
 	  <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
 	</svg>
 							        </span>
-			                        <span class="nav-link-text">Download</span>
+			                        <span class="nav-link-text">Downloads</span>
 						        </a><!--//nav-link-->
 						    </li><!--//nav-item-->
 						    <li class="nav-item">
@@ -317,12 +319,13 @@
 	  <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
 	</svg>
 							        </span>
-			                        <span class="nav-link-text">License</span>
+			                        <span class="nav-link-text">Licença</span>
 						        </a><!--//nav-link-->
 						    </li><!--//nav-item-->
 					    </ul><!--//footer-menu-->
 				    </nav>
 			    </div><!--//app-sidepanel-footer-->
+		       
 	        </div><!--//sidepanel-inner-->
 	    </div><!--//app-sidepanel-->
     </header><!--//app-header-->
@@ -334,7 +337,7 @@
 			    
 			    <div class="row g-3 mb-4 align-items-center justify-content-between">
 				    <div class="col-auto">
-			            <h1 class="app-page-title mb-0">Orders</h1>
+			            <h1 class="app-page-title mb-0">Inspeções Programadas</h1>
 				    </div>
 				    <div class="col-auto">
 					     <div class="page-utilities">
@@ -342,10 +345,10 @@
 							    <div class="col-auto">
 								    <form class="table-search-form row gx-1 align-items-center">
 					                    <div class="col-auto">
-					                        <input type="text" id="search-orders" name="searchorders" class="form-control search-orders" placeholder="Search">
+					                        <input type="text" id="search-orders" name="searchorders" class="form-control search-orders" placeholder="Pesquisar">
 					                    </div>
 					                    <div class="col-auto">
-					                        <button type="submit" class="btn app-btn-secondary">Search</button>
+					                        <button type="submit" class="btn app-btn-secondary">Pesquisar</button>
 					                    </div>
 					                </form>
 					                
@@ -353,10 +356,10 @@
 							    <div class="col-auto">
 								    
 								    <select class="form-select w-auto" >
-										  <option selected value="option-1">All</option>
-										  <option value="option-2">This week</option>
-										  <option value="option-3">This month</option>
-										  <option value="option-4">Last 3 months</option>
+										  <option selected value="option-1">Todas</option>
+										  <option value="option-2">Esta Semana</option>
+										  <option value="option-3">Este Mês</option>
+										  <option value="option-4">Últimos 3 Meses</option>
 										  
 									</select>
 							    </div>
@@ -366,7 +369,7 @@
 		  <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
 		  <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
 		</svg>
-									    Download CSV
+									    Download
 									</a>
 							    </div>
 						    </div><!--//row-->
@@ -376,10 +379,10 @@
 			   
 			    
 			    <nav id="orders-table-tab" class="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
-				    <a class="flex-sm-fill text-sm-center nav-link active" id="orders-all-tab" data-bs-toggle="tab" href="#orders-all" role="tab" aria-controls="orders-all" aria-selected="true">All</a>
-				    <a class="flex-sm-fill text-sm-center nav-link"  id="orders-paid-tab" data-bs-toggle="tab" href="#orders-paid" role="tab" aria-controls="orders-paid" aria-selected="false">Paid</a>
-				    <a class="flex-sm-fill text-sm-center nav-link" id="orders-pending-tab" data-bs-toggle="tab" href="#orders-pending" role="tab" aria-controls="orders-pending" aria-selected="false">Pending</a>
-				    <a class="flex-sm-fill text-sm-center nav-link" id="orders-cancelled-tab" data-bs-toggle="tab" href="#orders-cancelled" role="tab" aria-controls="orders-cancelled" aria-selected="false">Cancelled</a>
+				    <a class="flex-sm-fill text-sm-center nav-link active" id="orders-all-tab" data-bs-toggle="tab" href="#orders-all" role="tab" aria-controls="orders-all" aria-selected="true">Todas</a>
+				    <a class="flex-sm-fill text-sm-center nav-link"  id="orders-paid-tab" data-bs-toggle="tab" href="#orders-paid" role="tab" aria-controls="orders-paid" aria-selected="false">Finalizadas</a>
+				    <a class="flex-sm-fill text-sm-center nav-link" id="orders-pending-tab" data-bs-toggle="tab" href="#orders-pending" role="tab" aria-controls="orders-pending" aria-selected="false">Em Análise</a>
+				    <a class="flex-sm-fill text-sm-center nav-link" id="orders-cancelled-tab" data-bs-toggle="tab" href="#orders-cancelled" role="tab" aria-controls="orders-cancelled" aria-selected="false">Canceladas</a>
 				</nav>
 				
 				
@@ -391,10 +394,10 @@
 							        <table class="table app-table-hover mb-0 text-left">
 										<thead>
 											<tr>
-												<th class="cell">Order</th>
-												<th class="cell">Product</th>
-												<th class="cell">Customer</th>
-												<th class="cell">Date</th>
+												<th class="cell">Inspeção</th>
+												<th class="cell">Descrição</th>
+												<th class="cell">Cliente</th>
+												<th class="cell">Data</th>
 												<th class="cell">Status</th>
 												<th class="cell">Total</th>
 												<th class="cell"></th>
@@ -406,27 +409,27 @@
 												<td class="cell"><span class="truncate">Lorem ipsum dolor sit amet eget volutpat erat</span></td>
 												<td class="cell">John Sanders</td>
 												<td class="cell"><span>17 Oct</span><span class="note">2:16 PM</span></td>
-												<td class="cell"><span class="badge bg-success">Paid</span></td>
+												<td class="cell"><span class="badge bg-success">Finalizada</span></td>
 												<td class="cell">$259.35</td>
-												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
+												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">Ver</a></td>
 											</tr>
 											<tr>
 												<td class="cell">#15345</td>
 												<td class="cell"><span class="truncate">Consectetur adipiscing elit</span></td>
 												<td class="cell">Dylan Ambrose</td>
 												<td class="cell"><span class="cell-data">16 Oct</span><span class="note">03:16 AM</span></td>
-												<td class="cell"><span class="badge bg-warning">Pending</span></td>
+												<td class="cell"><span class="badge bg-warning">Em Análise</span></td>
 												<td class="cell">$96.20</td>
-												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
+												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">Ver</a></td>
 											</tr>
 											<tr>
 												<td class="cell">#15344</td>
 												<td class="cell"><span class="truncate">Pellentesque diam imperdiet</span></td>
 												<td class="cell">Teresa Holland</td>
 												<td class="cell"><span class="cell-data">16 Oct</span><span class="note">01:16 AM</span></td>
-												<td class="cell"><span class="badge bg-success">Paid</span></td>
+												<td class="cell"><span class="badge bg-success">Cancelada</span></td>
 												<td class="cell">$123.00</td>
-												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
+												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">Ver</a></td>
 											</tr>
 											
 											<tr>
@@ -434,9 +437,9 @@
 												<td class="cell"><span class="truncate">Vestibulum a accumsan lectus sed mollis ipsum</span></td>
 												<td class="cell">Jayden Massey</td>
 												<td class="cell"><span class="cell-data">15 Oct</span><span class="note">8:07 PM</span></td>
-												<td class="cell"><span class="badge bg-success">Paid</span></td>
+												<td class="cell"><span class="badge bg-success">Finalizada</span></td>
 												<td class="cell">$199.00</td>
-												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
+												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">Ver</a></td>
 											</tr>
 											
 											<tr>
@@ -444,9 +447,9 @@
 												<td class="cell"><span class="truncate">Justo feugiat neque</span></td>
 												<td class="cell">Reina Brooks</td>
 												<td class="cell"><span class="cell-data">12 Oct</span><span class="note">04:23 PM</span></td>
-												<td class="cell"><span class="badge bg-danger">Cancelled</span></td>
+												<td class="cell"><span class="badge bg-danger">Cancelada</span></td>
 												<td class="cell">$59.00</td>
-												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
+												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">Ver</a></td>
 											</tr>
 											
 											<tr>
@@ -454,9 +457,9 @@
 												<td class="cell"><span class="truncate">Morbi vulputate lacinia neque et sollicitudin</span></td>
 												<td class="cell">Raymond Atkins</td>
 												<td class="cell"><span class="cell-data">11 Oct</span><span class="note">11:18 AM</span></td>
-												<td class="cell"><span class="badge bg-success">Paid</span></td>
+												<td class="cell"><span class="badge bg-success">Finalizada</span></td>
 												<td class="cell">$678.26</td>
-												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
+												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">Ver</a></td>
 											</tr>
 		
 										</tbody>
@@ -468,13 +471,13 @@
 						<nav class="app-pagination">
 							<ul class="pagination justify-content-center">
 								<li class="page-item disabled">
-									<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+									<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
 							    </li>
 								<li class="page-item active"><a class="page-link" href="#">1</a></li>
 								<li class="page-item"><a class="page-link" href="#">2</a></li>
 								<li class="page-item"><a class="page-link" href="#">3</a></li>
 								<li class="page-item">
-								    <a class="page-link" href="#">Next</a>
+								    <a class="page-link" href="#">Próxima</a>
 								</li>
 							</ul>
 						</nav><!--//app-pagination-->
@@ -489,10 +492,10 @@
 							        <table class="table mb-0 text-left">
 										<thead>
 											<tr>
-												<th class="cell">Order</th>
-												<th class="cell">Product</th>
-												<th class="cell">Customer</th>
-												<th class="cell">Date</th>
+												<th class="cell">Inspeção</th>
+												<th class="cell">Descrição</th>
+												<th class="cell">Cliente</th>
+												<th class="cell">Data</th>
 												<th class="cell">Status</th>
 												<th class="cell">Total</th>
 												<th class="cell"></th>
@@ -504,9 +507,9 @@
 												<td class="cell"><span class="truncate">Lorem ipsum dolor sit amet eget volutpat erat</span></td>
 												<td class="cell">John Sanders</td>
 												<td class="cell"><span>17 Oct</span><span class="note">2:16 PM</span></td>
-												<td class="cell"><span class="badge bg-success">Paid</span></td>
+												<td class="cell"><span class="badge bg-success">Finalizada</span></td>
 												<td class="cell">$259.35</td>
-												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
+												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">Ver</a></td>
 											</tr>
 											
 											<tr>
@@ -514,9 +517,9 @@
 												<td class="cell"><span class="truncate">Pellentesque diam imperdiet</span></td>
 												<td class="cell">Teresa Holland</td>
 												<td class="cell"><span class="cell-data">16 Oct</span><span class="note">01:16 AM</span></td>
-												<td class="cell"><span class="badge bg-success">Paid</span></td>
+												<td class="cell"><span class="badge bg-success">Finalizada</span></td>
 												<td class="cell">$123.00</td>
-												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
+												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">Ver</a></td>
 											</tr>
 											
 											<tr>
@@ -524,9 +527,9 @@
 												<td class="cell"><span class="truncate">Vestibulum a accumsan lectus sed mollis ipsum</span></td>
 												<td class="cell">Jayden Massey</td>
 												<td class="cell"><span class="cell-data">15 Oct</span><span class="note">8:07 PM</span></td>
-												<td class="cell"><span class="badge bg-success">Paid</span></td>
+												<td class="cell"><span class="badge bg-success">Finalizada</span></td>
 												<td class="cell">$199.00</td>
-												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
+												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">Ver</a></td>
 											</tr>
 										
 											
@@ -535,9 +538,9 @@
 												<td class="cell"><span class="truncate">Morbi vulputate lacinia neque et sollicitudin</span></td>
 												<td class="cell">Raymond Atkins</td>
 												<td class="cell"><span class="cell-data">11 Oct</span><span class="note">11:18 AM</span></td>
-												<td class="cell"><span class="badge bg-success">Paid</span></td>
+												<td class="cell"><span class="badge bg-success">Finalizada</span></td>
 												<td class="cell">$678.26</td>
-												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
+												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">Ver</a></td>
 											</tr>
 		
 										</tbody>
@@ -554,10 +557,10 @@
 							        <table class="table mb-0 text-left">
 										<thead>
 											<tr>
-												<th class="cell">Order</th>
-												<th class="cell">Product</th>
-												<th class="cell">Customer</th>
-												<th class="cell">Date</th>
+												<th class="cell">Inspeção</th>
+												<th class="cell">Descrição</th>
+												<th class="cell">Cliente</th>
+												<th class="cell">Data</th>
 												<th class="cell">Status</th>
 												<th class="cell">Total</th>
 												<th class="cell"></th>
@@ -569,9 +572,9 @@
 												<td class="cell"><span class="truncate">Consectetur adipiscing elit</span></td>
 												<td class="cell">Dylan Ambrose</td>
 												<td class="cell"><span class="cell-data">16 Oct</span><span class="note">03:16 AM</span></td>
-												<td class="cell"><span class="badge bg-warning">Pending</span></td>
+												<td class="cell"><span class="badge bg-warning">Em Análise</span></td>
 												<td class="cell">$96.20</td>
-												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
+												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">Ver</a></td>
 											</tr>
 										</tbody>
 									</table>
@@ -586,10 +589,10 @@
 							        <table class="table mb-0 text-left">
 										<thead>
 											<tr>
-												<th class="cell">Order</th>
-												<th class="cell">Product</th>
-												<th class="cell">Customer</th>
-												<th class="cell">Date</th>
+												<th class="cell">Inspeção</th>
+												<th class="cell">Descrição</th>
+												<th class="cell">Cliente</th>
+												<th class="cell">Data</th>
 												<th class="cell">Status</th>
 												<th class="cell">Total</th>
 												<th class="cell"></th>
@@ -602,9 +605,9 @@
 												<td class="cell"><span class="truncate">Justo feugiat neque</span></td>
 												<td class="cell">Reina Brooks</td>
 												<td class="cell"><span class="cell-data">12 Oct</span><span class="note">04:23 PM</span></td>
-												<td class="cell"><span class="badge bg-danger">Cancelled</span></td>
+												<td class="cell"><span class="badge bg-danger">Cancelada</span></td>
 												<td class="cell">$59.00</td>
-												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
+												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">Ver</a></td>
 											</tr>
 											
 										</tbody>
@@ -619,14 +622,6 @@
 			    
 		    </div><!--//container-fluid-->
 	    </div><!--//app-content-->
-	    
-	    <footer class="app-footer">
-		    <div class="container text-center py-3">
-		         <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-            <small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="app-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
-		       
-		    </div>
-	    </footer><!--//app-footer-->
 	    
     </div><!--//app-wrapper-->    					
 
