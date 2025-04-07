@@ -11,19 +11,28 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   
     function criarCard(perito, index) {
-      return `
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card border-0 shadow-sm rounded-4">
-            <div class="card-body">
-              <h5 class="card-title">${perito.nome}</h5>
-              <p class="card-text">${perito.especialidade}</p>
-              <span class="badge bg-success">${perito.estado}</span>
-              <button class="btn btn-sm btn-danger mt-3" onclick="removerPerito(${index})">Remover</button>
+        return `
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4">
+              <div class="card-body position-relative">
+                <div class="dropdown position-absolute top-0 end-0 mt-2 me-2">
+                  <button class="btn btn-sm btn-light" type="button" id="dropdownMenuButton${index}" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton${index}">
+                    <li><a class="dropdown-item" href="#" onclick="editarPerito(${index})">Editar</a></li>
+                    <li><a class="dropdown-item text-danger" href="#" onclick="removerPerito(${index})">Apagar</a></li>
+                  </ul>
+                </div>
+                <h5 class="card-title">${perito.nome}</h5>
+                <p class="card-text">${perito.especialidade}</p>
+                <span class="badge bg-success">${perito.estado}</span>
+              </div>
             </div>
           </div>
-        </div>
-      `;
-    }
+        `;
+      }
+      
   
     function atualizarLista() {
       const peritos = obterPeritos();
