@@ -388,14 +388,19 @@
                         </div>
                         <div class="modal-body">
                             <form id="peritoForm">
+                                <!-- Campo de Nome -->
                                 <div class="mb-3">
                                     <label for="nomePerito" class="form-label">Nome</label>
                                     <input type="text" class="form-control" id="nomePerito" name="nome" required>
                                 </div>
+                        
+                                <!-- Campo de Especialidade -->
                                 <div class="mb-3">
                                     <label for="especialidadePerito" class="form-label">Especialidade</label>
                                     <input type="text" class="form-control" id="especialidadePerito" name="especialidade" required>
                                 </div>
+                        
+                                <!-- Campo de Estado -->
                                 <div class="mb-3">
                                     <label for="estadoPerito" class="form-label">Estado</label>
                                     <select class="form-select" id="estadoPerito" name="estado">
@@ -403,9 +408,15 @@
                                         <option value="Inativo">Inativo</option>
                                     </select>
                                 </div>
+                        
+                                <!-- Campo Hidden para armazenar o ID do perito -->
+                                <input type="hidden" id="peritoId" name="peritoId">  
+                        
+                                <!-- Botão para submeter o formulário -->
                                 <button type="submit" class="btn btn-primary w-100">Guardar Perito</button>
                             </form>
                         </div>
+                        
                     </div>
                 </div>
             </div>                                      
