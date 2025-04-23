@@ -66,6 +66,7 @@ window.addEventListener("DOMContentLoaded", function () {
             <td>${denuncia.email}</td>
             <td>${denuncia.data}</td>
             <td>${denuncia.categoria}</td>
+            <td>${denuncia.estado || "N/A"}</td>
           </tr>
         `).join('');
       });
