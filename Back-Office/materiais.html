@@ -17,7 +17,7 @@
     
     <!-- App CSS -->  
     <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
-	<link id="theme-style" rel="stylesheet" href="assets/css/peritos.css">
+	<link id="theme-style" rel="stylesheet" href="assets/css/materiais.css">
 
 </head> 
 
@@ -333,53 +333,16 @@
 			  </span>
 			 </a>
 			</li>
-			<li class="nav-item has-submenu">
-			 <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-			 <a aria-controls="submenu-2" aria-expanded="false" class="nav-link submenu-toggle" data-bs-target="#submenu-2" data-bs-toggle="collapse" href="#">
-			  <span class="nav-icon">
-			   <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-			   <svg class="bi bi-columns-gap" fill="currentColor" height="1em" viewbox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
-				<path d="M6 1H1v3h5V1zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12h-5v3h5v-3zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8H1v7h5V8zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6h-5v7h5V1zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z" fill-rule="evenodd">
-				</path>
-			   </svg>
-			  </span>
-			  <span class="nav-link-text">
-			   Normas e Regulamentos
-			  </span>
-			  <span class="submenu-arrow">
-			   <svg class="bi bi-chevron-down" fill="currentColor" height="1em" viewbox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
-				<path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" fill-rule="evenodd">
-				</path>
-			   </svg>
-			  </span>
-			  <!--//submenu-arrow-->
-			 </a>
-			 <!--//nav-link-->
-			 <div class="collapse submenu submenu-2" data-bs-parent="#menu-accordion" id="submenu-2">
-			  <ul class="submenu-list list-unstyled">
-			   <li class="submenu-item">
-				<a class="submenu-link" href="login.html">
-				 Login
+			<li class="nav-item">
+				<a class="nav-link" href="materiais.html">
+				  <span class="nav-icon">
+					<svg class="bi bi-columns-gap" fill="currentColor" width="1em" height="1em" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+					  <path fill-rule="evenodd" d="M6 1H1v3h5V1zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12h-5v3h5v-3zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8H1v7h5V8zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6h-5v7h5V1zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z"/>
+					</svg>
+				  </span>
+				  <span class="nav-link-text">Materiais</span>
 				</a>
-			   </li>
-			   <li class="submenu-item">
-				<a class="submenu-link" href="signup.html">
-				 Signup
-				</a>
-			   </li>
-			   <li class="submenu-item">
-				<a class="submenu-link" href="reset-password.html">
-				 Reset password
-				</a>
-			   </li>
-			   <li class="submenu-item">
-				<a class="submenu-link" href="404.html">
-				 404 page
-				</a>
-			   </li>
-			  </ul>
-			 </div>
-			</li>
+			  </li>			  
 			<!--//nav-item-->
 			<li class="nav-item">
 			 <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
@@ -452,97 +415,114 @@
 		<!--//app-sidepanel-->
 	   </header><!--//app-header-->
     
-    <div class="app-wrapper">
-        <div class="app-content pt-3 p-md-3 p-lg-4">
-            <div class="container-xl">
-                <div class="row g-3 mb-4 align-items-center justify-content-between">
-                    <div class="col-auto">
-                        <h1 class="app-page-title mb-0">Gestão de Peritos</h1>
-                    </div>
-                    <div class="col-auto">
-                        <div class="page-utilities">
-                            <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
-                                <div class="col-auto">
-                                    <form class="docs-search-form row gx-1 align-items-center">
-                                        <div class="col-auto">
-                                            <input type="text" id="search-docs" name="searchdocs" class="form-control search-docs" placeholder="Pesquisar">
-                                        </div>
-                                        <div class="col-auto">
-                                            <button type="submit" class="btn app-btn-secondary">Pesquisar</button>
-                                        </div>
-                                    </form>
-                                </div><!--//col-->
-                                <div class="col-auto">
-                                    <select class="form-select w-auto">
-                                        <option selected="" value="option-1">Todos</option>
-                                        <option value="option-2">Engenheiro</option>
-                                        <option value="option-3">Enfermeira</option>
-                                        <option value="option-6">Auditor</option>
-                                        <option value="option-6">Técnico</option>
-                                    </select>
-                                </div>
-                                <div class="col-auto">
-                                    <a class="btn app-btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#peritoModal">
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-upload me-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                                            <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
-                                        </svg>Inserir Perito
-                                    </a>
-                                </div>
-                            </div><!--//row-->
-                        </div><!--//table-utilities-->
-                    </div><!--//col-auto-->
-                </div><!--//row-->
-                
-                <div class="row g-4" id="lista-peritos">
-                    <!-- Os cards serão gerados dinamicamente aqui -->
-                </div>
-                
-            </div><!--//app-wrapper-->
-            
-            <div class="modal fade" id="peritoModal" tabindex="-1" aria-labelledby="peritoModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header bg-primary text-white">
-                            <h5 class="modal-title" id="peritoModalLabel">Adicionar Perito</h5>
-                            <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="peritoForm">
-                                <!-- Campo de Nome -->
-                                <div class="mb-3">
-                                    <label for="nomePerito" class="form-label">Nome</label>
-                                    <input type="text" class="form-control" id="nomePerito" name="nome" required>
-                                </div>
-                        
-                                <!-- Campo de Especialidade -->
-                                <div class="mb-3">
-                                    <label for="especialidadePerito" class="form-label">Especialidade</label>
-                                    <input type="text" class="form-control" id="especialidadePerito" name="especialidade" required>
-                                </div>
-                        
-                                <!-- Campo de Estado -->
-                                <div class="mb-3">
-                                    <label for="estadoPerito" class="form-label">Estado</label>
-                                    <select class="form-select" id="estadoPerito" name="estado">
-                                        <option value="Ativo">Ativo</option>
-                                        <option value="Inativo">Inativo</option>
-                                    </select>
-                                </div>
-                        
-                                <!-- Campo Hidden para armazenar o ID do perito -->
-                                <input type="hidden" id="peritoId" name="peritoId">  
-                        
-                                <!-- Botão para submeter o formulário -->
-                                <button type="submit" class="btn btn-primary w-100">Guardar Perito</button>
-                            </form>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>                                      
-    
-        </div> 
+	   <div class="app-wrapper">
+		<div class="app-content pt-3 p-md-3 p-lg-4">
+		  <div class="container-xl">
+	  
+			<!-- Título -->
+			<div class="row g-3 mb-4 align-items-center justify-content-between">
+			  <div class="col-auto">
+				<h1 class="app-page-title mb-0">Gestão de Materiais</h1>
+			  </div>
+	  
+			  <!-- Barra de pesquisa e filtro -->
+			  <div class="col-auto">
+				<div class="page-utilities">
+				  <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
+	  
+					<!-- Pesquisa -->
+					<div class="col-auto">
+					  <form class="docs-search-form row gx-1 align-items-center">
+						<div class="col-auto">
+						  <input type="text" id="search-docs" name="searchdocs" class="form-control search-docs" placeholder="Pesquisar">
+						</div>
+						<div class="col-auto">
+						  <button type="submit" class="btn app-btn-secondary">Pesquisar</button>
+						</div>
+					  </form>
+					</div>
+	  
+					<!-- Filtro por tipo -->
+					<div class="col-auto">
+					  <select class="form-select w-auto">
+						<option selected value="option-1">Todos</option>
+						<option value="carro">Carro</option>
+						<option value="luvas">Luvas</option>
+						<option value="mascara">Máscara</option>
+						<option value="liquidos">Líquidos</option>
+						<option value="oculos">Óculos</option>
+						<option value="botas">Botas</option>
+						<option value="batas">Batas</option>
+						<option value="capacete">Capacete</option>
+					  </select>
+					</div>
+	  
+					<!-- Botão para adicionar material -->
+					<div class="col-auto">
+					  <a class="btn app-btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#peritoModal">
+						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-upload me-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						  <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+						  <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+						</svg>Inserir Material
+					  </a>
+					</div>
+	  
+				  </div><!--//row-->
+				</div><!--//page-utilities-->
+			  </div><!--//col-auto-->
+			</div><!--//row-->
+	  
+			<!-- Lista de Materiais (cards renderizados dinamicamente) -->
+			<div class="row g-4" id="lista-peritos"></div>
+	  
+		  </div><!--//container-xl-->
+	  
+		  <!-- Modal para inserção de material -->
+		  <div class="modal fade" id="peritoModal" tabindex="-1" aria-labelledby="peritoModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+			  <div class="modal-content">
+				<div class="modal-header modal-custom-green text-white">
+					<h5 class="modal-title" id="peritoModalLabel">Inserir Material</h5>
+					<button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+				</div>				  
+				<div class="modal-body">
+				  <form id="peritoForm">
+					<!-- Tipo de Material -->
+					<div class="mb-3">
+					  <label for="estadoPerito" class="form-label">Tipo de Material</label>
+					  <select class="form-select" id="estadoPerito" name="estado">
+						<option value="carro">Carro</option>
+						<option value="luvas">Luvas</option>
+						<option value="mascara">Máscara</option>
+						<option value="liquidos">Líquidos</option>
+						<option value="oculos">Óculos</option>
+						<option value="botas">Botas</option>
+						<option value="batas">Batas</option>
+						<option value="capacete">Capacete</option>
+					  </select>
+					</div>
+		  
+					<!-- Quantidade a inserir -->
+					<div class="mb-3">
+					  <label for="quantidadeMaterial" class="form-label">Quantidade</label>
+					  <input type="number" class="form-control" id="quantidadeMaterial" name="quantidadeMaterial" min="1" value="1" required>
+					</div>
+		  
+					<!-- Campo Hidden -->
+					<input type="hidden" id="peritoId" name="peritoId">
+		  
+					<!-- Botão de Submissão -->
+					<button type="submit" class="btn app-btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#peritoModal">Inserir Material</button>
+				  </form>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  </div><!--//modal-->
+	  
+		</div><!--//app-content-->
+	  </div><!--//app-wrapper-->
+	   
         
         <!-- Javascript -->        
         <script src="assets/plugins/popper.min.js"></script>
@@ -550,6 +530,6 @@
         
         <!-- Page Specific JS -->
         <script src="assets/js/app.js"></script>
-        <script src="assets/js/peritos.js"></script>
+        <script src="assets/js/materiais.js"></script>
     </body>
     </html> 
