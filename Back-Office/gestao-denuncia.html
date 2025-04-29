@@ -17,7 +17,7 @@
     
     <!-- App CSS -->  
     <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
-	<link id="theme-style" rel="stylesheet" href="assets/css/orders.css">
+	<link id="theme-style" rel="stylesheet" href="assets/css/gestao-denuncia.css">
 
 </head> 
 
@@ -296,7 +296,7 @@
 			<!--//nav-item-->
 			<li class="nav-item">
 			 <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-			 <a class="nav-link" href="orders.html">
+			 <a class="nav-link" href="gestao-denuncia.html">
 			  <span class="nav-icon">
 			   <svg class="bi bi-card-list" fill="currentColor" height="1em" viewbox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
 				<path d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" fill-rule="evenodd">
@@ -430,7 +430,7 @@
 							    <div class="col-auto">
 								    <form class="table-search-form row gx-1 align-items-center">
 					                    <div class="col-auto">
-					                        <input type="text" id="search-orders" name="searchorders" class="form-control search-orders" placeholder="Pesquisar">
+					                        <input type="text" id="search-gestao-denuncia" name="searchgestao-denuncia" class="form-control search-gestao-denuncia" placeholder="Pesquisar">
 					                    </div>
 					                    <div class="col-auto">
 					                        <button type="submit" class="btn app-btn-secondary">Pesquisar</button>
@@ -463,17 +463,17 @@
 			    </div><!--//row-->
 			   
 			    
-			    <nav id="orders-table-tab" class="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
-				    <a class="flex-sm-fill text-sm-center nav-link active" id="orders-all-tab" data-bs-toggle="tab" href="#orders-all" role="tab" aria-controls="orders-all" aria-selected="true">Todas</a>
-				    <a class="flex-sm-fill text-sm-center nav-link"  id="orders-paid-tab" data-bs-toggle="tab" href="#orders-paid" role="tab" aria-controls="orders-paid" aria-selected="false">Finalizadas</a>
-				    <a class="flex-sm-fill text-sm-center nav-link" id="orders-pending-tab" data-bs-toggle="tab" href="#orders-pending" role="tab" aria-controls="orders-pending" aria-selected="false">Em Análise</a>
-				    <a class="flex-sm-fill text-sm-center nav-link" id="orders-cancelled-tab" data-bs-toggle="tab" href="#orders-cancelled" role="tab" aria-controls="orders-cancelled" aria-selected="false">Canceladas</a>
+			    <nav id="gestao-denuncia-table-tab" class="gestao-denuncia-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
+				    <a class="flex-sm-fill text-sm-center nav-link active" id="gestao-denuncia-all-tab" data-bs-toggle="tab" href="#gestao-denuncia-all" role="tab" aria-controls="gestao-denuncia-all" aria-selected="true">Todas</a>
+				    <a class="flex-sm-fill text-sm-center nav-link"  id="gestao-denuncia-paid-tab" data-bs-toggle="tab" href="#gestao-denuncia-paid" role="tab" aria-controls="gestao-denuncia-paid" aria-selected="false">Finalizadas</a>
+				    <a class="flex-sm-fill text-sm-center nav-link" id="gestao-denuncia-pending-tab" data-bs-toggle="tab" href="#gestao-denuncia-pending" role="tab" aria-controls="gestao-denuncia-pending" aria-selected="false">Em Análise</a>
+				    <a class="flex-sm-fill text-sm-center nav-link" id="gestao-denuncia-cancelled-tab" data-bs-toggle="tab" href="#gestao-denuncia-cancelled" role="tab" aria-controls="gestao-denuncia-cancelled" aria-selected="false">Canceladas</a>
 				</nav>
 				
 				
-				<div class="tab-content" id="orders-table-tab-content">
-			        <div class="tab-pane fade show active" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
-					    <div class="app-card app-card-orders-table shadow-sm mb-5">
+				<div class="tab-content" id="gestao-denuncia-table-tab-content">
+			        <div class="tab-pane fade show active" id="gestao-denuncia-all" role="tabpanel" aria-labelledby="gestao-denuncia-all-tab">
+					    <div class="app-card app-card-gestao-denuncia-table shadow-sm mb-5">
 						    <div class="app-card-body">
 							    <div class="table-responsive">
 							        <table class="table app-table-hover mb-0 text-left">
@@ -538,8 +538,8 @@
 						
 			        </div><!--//tab-pane-->
 			        
-			        <div class="tab-pane fade" id="orders-paid" role="tabpanel" aria-labelledby="orders-paid-tab">
-					    <div class="app-card app-card-orders-table mb-5">
+			        <div class="tab-pane fade" id="gestao-denuncia-paid" role="tabpanel" aria-labelledby="gestao-denuncia-paid-tab">
+					    <div class="app-card app-card-gestao-denuncia-table mb-5">
 						    <div class="app-card-body">
 							    <div class="table-responsive">
 								    
@@ -572,8 +572,8 @@
 						</div><!--//app-card-->
 			        </div><!--//tab-pane-->
 			        
-			        <div class="tab-pane fade" id="orders-pending" role="tabpanel" aria-labelledby="orders-pending-tab">
-					    <div class="app-card app-card-orders-table mb-5">
+			        <div class="tab-pane fade" id="gestao-denuncia-pending" role="tabpanel" aria-labelledby="gestao-denuncia-pending-tab">
+					    <div class="app-card app-card-gestao-denuncia-table mb-5">
 						    <div class="app-card-body">
 							    <div class="table-responsive">
 							        <table class="table mb-0 text-left">
@@ -603,8 +603,8 @@
 						    </div><!--//app-card-body-->		
 						</div><!--//app-card-->
 			        </div><!--//tab-pane-->
-			        <div class="tab-pane fade" id="orders-cancelled" role="tabpanel" aria-labelledby="orders-cancelled-tab">
-					    <div class="app-card app-card-orders-table mb-5">
+			        <div class="tab-pane fade" id="gestao-denuncia-cancelled" role="tabpanel" aria-labelledby="gestao-denuncia-cancelled-tab">
+					    <div class="app-card app-card-gestao-denuncia-table mb-5">
 						    <div class="app-card-body">
 							    <div class="table-responsive">
 							        <table class="table mb-0 text-left">
@@ -643,7 +643,50 @@
 		    </div><!--//container-fluid-->
 	    </div><!--//app-content-->
 	    
-    </div><!--//app-wrapper-->    					
+    </div><!--//app-wrapper-->  
+	
+				<!-- Modal de Visualização e Gestão da Denúncia -->
+		<div class="modal fade" id="modalDetalhesDenuncia" tabindex="-1" aria-labelledby="modalDetalhesDenunciaLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header bg-primary text-white">
+				<h5 class="modal-title" id="modalDetalhesDenunciaLabel">Detalhes da Denúncia</h5>
+				<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+				</div>
+				<div class="modal-body">
+				<p><strong>Nome:</strong> <span id="detalheNome"></span></p>
+				<p><strong>Email:</strong> <span id="detalheEmail"></span></p>
+				<p><strong>Localização:</strong> <span id="detalheLocalizacao"></span></p>
+				<p><strong>Descrição:</strong> <span id="detalheDescricao"></span></p>
+				<p><strong>Data:</strong> <span id="detalheData"></span></p>
+		
+				<!-- Secção dos ficheiros -->
+				<p><strong>Ficheiros Anexados:</strong></p>
+				<div id="detalheFicheiros" class="row g-2 mb-3">
+					<!-- Preenchido via JS -->
+				</div>
+		
+				<!-- Estado -->
+				<div class="form-group">
+					<label for="estadoDenuncia">Estado:</label>
+					<select id="estadoDenuncia" class="form-select">
+					<option value="analisar">Em Análise</option>
+					<option value="finalizada">Finalizada</option>
+					<option value="cancelada">Cancelada</option>
+					</select>
+				</div>
+				</div>
+				<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+				<button type="button" class="btn btn-primary" id="guardarEstadoBtn">Guardar Alterações</button>
+				</div>
+			</div>
+			</div>
+		</div>
+  
+		</div>
+	</div>
+  
 
  
     <!-- Javascript -->          
@@ -653,6 +696,8 @@
     
     <!-- Page Specific JS -->
     <script src="assets/js/app.js"></script> 
+
+	<script src="assets/js/gestao-denuncias.js"></script>
 
 </body>
 </html> 
