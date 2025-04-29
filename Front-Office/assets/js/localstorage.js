@@ -49,13 +49,36 @@ window.addEventListener("DOMContentLoaded", function () {
       return data;
     }
 
+
     denunciaForm.addEventListener("submit", e => {
       e.preventDefault();
+    
       const data = getDenunciaFormData();
+      const codigoPostal = data.codPostal.trim();
+    
+      if (!(codigoPostal.startsWith("47") || codigoPostal.startsWith("48"))) {
+        mostrarMensagem("Erro", "A EyesEverywhere apenas atua no distrito de Braga.", "bg-danger");
+        return;
+      }
+    
       guardarEmLocalStorage("denuncias", data);
-      alert("Denúncia guardada com sucesso!");
+      mostrarMensagem("Sucesso", "Denúncia guardada com sucesso!", "bg-success");
       denunciaForm.reset();
     });
+    
+    // Função para mostrar o Modal
+    function mostrarMensagem(titulo, mensagem, corCabecalho) {
+      document.getElementById("mensagemModalLabel").textContent = titulo;
+      document.getElementById("mensagemModalBody").textContent = mensagem;
+    
+      // Atualizar cor do cabeçalho dinamicamente
+      const header = document.querySelector("#mensagemModal .modal-header");
+      header.className = "modal-header " + corCabecalho + " text-white";
+    
+      $('#mensagemModal').modal('show');
+    }    
+    
+      
 
     if (denunciaMostrarBtn && denunciaTable) {
       denunciaMostrarBtn.addEventListener("click", () => {
