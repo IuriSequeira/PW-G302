@@ -1,125 +1,77 @@
 // Ficheiro: assets/js/localStorage.js
 
 window.addEventListener("DOMContentLoaded", function () {
-
-  // --------------------------
-  // Funções genéricas comuns
-  // --------------------------
-
   function guardarEmLocalStorage(chave, objeto) {
     const lista = JSON.parse(localStorage.getItem(chave)) || [];
     lista.push(objeto);
     localStorage.setItem(chave, JSON.stringify(lista));
   }
 
-  function lerDeLocalStorage(chave) {
-    return JSON.parse(localStorage.getItem(chave)) || [];
-  }
-
-  function limparLocalStorage(chave) {
-    localStorage.removeItem(chave);
-  }
-
-  // -----------------------------------
-  // Módulo: Denúncias (denuncia-form)
-  // -----------------------------------
-
   const denunciaForm = document.querySelector("#denuncia-form");
-  const denunciaTable = document.querySelector("#lista-denuncias");
-  const denunciaMostrarBtn = document.querySelector("#mostrar");
 
   if (denunciaForm) {
-    function getDenunciaFormData() {
-      const data = {};
-      const formElements = denunciaForm.elements;
+    denunciaForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-      for (const element of formElements) {
-        if (element.name && element.type !== "file") {
-          data[element.name] = element.value;
+      try {
+        const data = await getDenunciaFormData();
+        const codigoPostal = data.codPostal.trim();
+
+        if (!(codigoPostal.startsWith("47") || codigoPostal.startsWith("48"))) {
+          mostrarMensagem("Erro", "A EyesEverywhere apenas atua no distrito de Braga.", "bg-danger");
+          return;
         }
-      }
 
-      const ficheirosInput = document.getElementById("ficheiros");
-      const ficheiros = ficheirosInput ? ficheirosInput.files : [];
-      data.ficheiros = [];
-      for (let i = 0; i < ficheiros.length; i++) {
-        data.ficheiros.push(ficheiros[i].name);
+        data.estado = "analisar";
+        guardarEmLocalStorage("denuncias", data);
+        mostrarMensagem("Sucesso", "Denúncia guardada com sucesso!", "bg-success");
+        denunciaForm.reset();
+      } catch (err) {
+        console.error("Erro ao ler ficheiros:", err);
       }
+    });
 
-      return data;
+    function getDenunciaFormData() {
+      return new Promise((resolve, reject) => {
+        const data = {};
+        const formElements = denunciaForm.elements;
+
+        for (const element of formElements) {
+          if (element.name && element.type !== "file") {
+            data[element.name] = element.value;
+          }
+        }
+
+        const ficheirosInput = document.getElementById("ficheiros");
+        const ficheiros = ficheirosInput ? ficheirosInput.files : [];
+        data.ficheiros = [];
+
+        if (ficheiros.length === 0) {
+          resolve(data);
+        } else {
+          let lidos = 0;
+          Array.from(ficheiros).forEach(file => {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              data.ficheiros.push(e.target.result);
+              lidos++;
+              if (lidos === ficheiros.length) resolve(data);
+            };
+            reader.onerror = function (err) {
+              reject(err);
+            };
+            reader.readAsDataURL(file);
+          });
+        }
+      });
     }
 
-
-    denunciaForm.addEventListener("submit", e => {
-      e.preventDefault();
-    
-      const data = getDenunciaFormData();
-      const codigoPostal = data.codPostal.trim();
-    
-      if (!(codigoPostal.startsWith("47") || codigoPostal.startsWith("48"))) {
-        mostrarMensagem("Erro", "A EyesEverywhere apenas atua no distrito de Braga.", "bg-danger");
-        return;
-      }
-    
-      guardarEmLocalStorage("denuncias", data);
-      mostrarMensagem("Sucesso", "Denúncia guardada com sucesso!", "bg-success");
-      denunciaForm.reset();
-    });
-    
-    // Função para mostrar o Modal
     function mostrarMensagem(titulo, mensagem, corCabecalho) {
       document.getElementById("mensagemModalLabel").textContent = titulo;
       document.getElementById("mensagemModalBody").textContent = mensagem;
-    
-      // Atualizar cor do cabeçalho dinamicamente
       const header = document.querySelector("#mensagemModal .modal-header");
       header.className = "modal-header " + corCabecalho + " text-white";
-    
       $('#mensagemModal').modal('show');
-    }    
-    
-      
-
-    if (denunciaMostrarBtn && denunciaTable) {
-      denunciaMostrarBtn.addEventListener("click", () => {
-        const denuncias = lerDeLocalStorage("denuncias");
-        denunciaTable.innerHTML = denuncias.map(denuncia => `
-          <tr>
-            <td>${denuncia.nome}</td>
-            <td>${denuncia.email}</td>
-            <td>${denuncia.data}</td>
-            <td>${denuncia.categoria}</td>
-            <td>${denuncia.estado || "N/A"}</td>
-          </tr>
-        `).join('');
-      });
     }
   }
-
-  // -----------------------------------
-  // Módulo: Login (login-form)
-  // -----------------------------------
-
-  const loginForm = document.querySelector("#login-form");
-
-  if (loginForm) {
-    loginForm.addEventListener("submit", e => {
-      e.preventDefault();
-      const data = {};
-      const formElements = loginForm.elements;
-
-      for (const element of formElements) {
-        if (element.name) {
-          data[element.name] = element.value;
-        }
-      }
-
-      guardarEmLocalStorage("logins", data);
-      alert("Login guardado com sucesso!");
-      loginForm.reset();
-    });
-  }
-
-  // Adiciona aqui outros módulos conforme necessário (ex: registos, mensagens, etc)
-
 });
