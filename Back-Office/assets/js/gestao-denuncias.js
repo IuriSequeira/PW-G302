@@ -36,6 +36,8 @@ document.addEventListener("DOMContentLoaded", function() {
       <td class="cell">${denuncia.nome}</td>
       <td class="cell"><span>${formatarData(denuncia.data)}</span></td>
       <td class="cell"><span class="badge ${getBadgeClass(denuncia.estado)}">${formatarEstado(denuncia.estado)}</span></td>
+      <td class="cell"><button class="btn-sm app-btn-secondary" onclick="abrirAssociarMaterial(${index})">Materiais</button></td>
+      <td class="cell"><button class="btn-sm app-btn-secondary" onclick="abrirAssociarPerito(${index})">Peritos</button></td>
       <td class="cell"><button class="btn-sm app-btn-secondary" onclick="verDetalhes(${index})">Ver</button></td>
     `;
     tbody.appendChild(tr);
@@ -64,14 +66,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const denuncia = denuncias[index];
     denunciaSelecionadaIndex = index;
   
+    // Preencher campos principais
     document.getElementById('detalheNome').textContent = denuncia.nome;
     document.getElementById('detalheEmail').textContent = denuncia.email;
     document.getElementById('detalheLocalizacao').textContent = denuncia.localizacao;
     document.getElementById('detalheDescricao').textContent = denuncia.descricao;
     document.getElementById('detalheData').textContent = formatarData(denuncia.data);
     document.getElementById('estadoDenuncia').value = denuncia.estado;
-    
   
+    // Mostrar ficheiros
     const ficheirosContainer = document.getElementById('detalheFicheiros');
     ficheirosContainer.innerHTML = "";
   
@@ -94,9 +97,61 @@ document.addEventListener("DOMContentLoaded", function() {
       ficheirosContainer.innerHTML = "<p class='text-muted'>Nenhum ficheiro anexado.</p>";
     }
   
+    // Mostrar Materiais, Perito e Total
+    const peritoAssociado = document.getElementById('peritoAssociado');
+    const listaMateriais = document.getElementById('listaMateriaisAssociados');
+    const totalDenuncia = document.getElementById('totalDenuncia');
+  
+    listaMateriais.innerHTML = "";
+    peritoAssociado.textContent = "";
+    totalDenuncia.textContent = "";
+  
+    let total = 0;
+  
+    // Materiais associados
+    if (denuncia.materiais && denuncia.materiais.length > 0) {
+      const materiaisStock = JSON.parse(localStorage.getItem("materiaisPorTipo")) || {};
+  
+      denuncia.materiais.forEach(m => {
+        const materialInfo = materiaisStock[m.tipo];
+        const precoUnitario = materialInfo?.preco || 0;
+        const subtotal = precoUnitario * m.quantidade;
+        total += subtotal;
+  
+        const li = document.createElement("li");
+        li.className = "list-group-item";
+        li.textContent = `${materialInfo?.nome || m.tipo} - ${m.quantidade} unidades - €${subtotal.toFixed(2)}`;
+        listaMateriais.appendChild(li);
+      });
+    } else {
+      listaMateriais.innerHTML = "<li class='list-group-item text-muted'>Nenhum material associado.</li>";
+    }
+  
+    // Perito associado
+    if (denuncia.perito) {
+      const peritos = JSON.parse(localStorage.getItem("peritos")) || [];
+      const peritoInfo = peritos.find(p => p.nome === denuncia.perito);
+  
+      if (peritoInfo) {
+        peritoAssociado.textContent = `${peritoInfo.nome} - €${peritoInfo.valor ? parseFloat(peritoInfo.valor).toFixed(2) : "N/D"}`;
+        if (peritoInfo.valor) total += parseFloat(peritoInfo.valor);
+      } else {
+        peritoAssociado.textContent = `${denuncia.perito} (Informação indisponível)`;
+      }
+    } else {
+      peritoAssociado.textContent = "Nenhum perito associado.";
+    }
+  
+    // Mostrar Total
+    totalDenuncia.textContent = `Total: €${total.toFixed(2)}`;
+  
+    // Abrir modal
     const modal = new bootstrap.Modal(document.getElementById('modalDetalhesDenuncia'));
     modal.show();
-  }
+  
+    // Atualizar selects de Peritos e Materiais
+    preencherSelects();
+  }  
   
   document.getElementById('guardarEstadoBtn').addEventListener('click', function() {
     const novoEstado = document.getElementById('estadoDenuncia').value;
@@ -107,5 +162,119 @@ document.addEventListener("DOMContentLoaded", function() {
       const modal = bootstrap.Modal.getInstance(document.getElementById('modalDetalhesDenuncia'));
       modal.hide();
     }
+
+    function preencherSelects() {
+      const peritos = JSON.parse(localStorage.getItem("peritos")) || [];
+      const materiais = JSON.parse(localStorage.getItem("materiaisPorTipo")) || {};
+    
+      const selectPerito = document.getElementById("selectPerito");
+      const selectMaterial = document.getElementById("selectMaterial");
+    
+      // Preencher peritos
+      if (selectPerito) {
+        selectPerito.innerHTML = '<option value="">-- Nenhum --</option>' + 
+          peritos.map(p => `<option value="${p.nome}">${p.nome}</option>`).join('');
+      }
+    
+      // Preencher materiais
+      if (selectMaterial) {
+        selectMaterial.innerHTML = Object.keys(materiais).map(tipo =>
+          `<option value="${tipo}">${materiais[tipo].nome}</option>`
+        ).join('');
+      }
+    }    
+    
+  });
+
+  function abrirAssociarPerito(index) {
+    denunciaSelecionadaIndex = index;
+    const denuncia = denuncias[index];
+  
+    document.getElementById('modalAssociarPeritoTitulo').textContent = `Associar Perito à denúncia #${index + 1}`;
+    document.getElementById('selectPerito').value = denuncia.perito || '';
+    
+    const modal = new bootstrap.Modal(document.getElementById('modalAssociarPerito'));
+    modal.show();
+  }
+  
+  function abrirAssociarMaterial(index) {
+    denunciaSelecionadaIndex = index;
+    const modal = new bootstrap.Modal(document.getElementById('modalAssociarMaterial'));
+    modal.show();
+  }  
+
+  function preencherSelects() {
+    const peritos = JSON.parse(localStorage.getItem("peritos")) || [];
+    const materiais = JSON.parse(localStorage.getItem("materiaisPorTipo")) || {};
+  
+    const selectPerito = document.getElementById("selectPerito");
+    const selectMaterial = document.getElementById("selectMaterial");
+  
+    selectPerito.innerHTML = peritos.map(perito => `<option value="${perito.nome}">${perito.nome}</option>`).join('');
+    selectMaterial.innerHTML = Object.keys(materiais).map(key => `<option value="${key}">${materiais[key].nome}</option>`).join('');
+  }
+  document.getElementById("modalAssociarPerito").addEventListener("show.bs.modal", preencherSelects);
+  
+  document.getElementById("btnAssociarPerito").addEventListener("click", function() {
+    const peritoSelecionado = document.getElementById("selectPerito").value;
+    if (denunciaSelecionadaIndex !== null) {
+      if (peritoSelecionado === '') {
+        delete denuncias[denunciaSelecionadaIndex].perito;
+        alert("Perito removido com sucesso!");
+      } else {
+        denuncias[denunciaSelecionadaIndex].perito = peritoSelecionado;
+        alert("Perito associado com sucesso!");
+      }
+      localStorage.setItem("denuncias", JSON.stringify(denuncias));
+    }
+  });
+  
+  
+  document.getElementById("btnAssociarMaterial").addEventListener("click", function () {
+    const materialSelecionado = document.getElementById("selectMaterial").value;
+    const quantidade = parseInt(document.getElementById("quantidadeMaterial").value, 10);
+    const materiais = JSON.parse(localStorage.getItem("materiaisPorTipo")) || {};
+    const denuncia = denuncias[denunciaSelecionadaIndex];
+  
+    if (!materialSelecionado || isNaN(quantidade)) {
+      alert("Insere uma quantidade válida.");
+      return;
+    }
+  
+    if (!denuncia.materiais) denuncia.materiais = [];
+    const existente = denuncia.materiais.find(m => m.tipo === materialSelecionado);
+  
+    // REMOVER MATERIAL
+    if (quantidade < 0) {
+      if (existente && existente.quantidade >= Math.abs(quantidade)) {
+        existente.quantidade += quantidade; // quantidade negativa
+        materiais[materialSelecionado].quantidade -= quantidade; // adicionar ao stock
+        if (existente.quantidade === 0) {
+          denuncia.materiais = denuncia.materiais.filter(m => m.tipo !== materialSelecionado);
+        }
+        alert("Material removido com sucesso!");
+      } else {
+        alert("Não há quantidade suficiente desse material para remover.");
+        return;
+      }
+    }
+    // ADICIONAR MATERIAL
+    else {
+      if (!materiais[materialSelecionado] || materiais[materialSelecionado].quantidade < quantidade) {
+        alert("Não há materiais suficientes em stock.");
+        return;
+      }
+  
+      if (existente) {
+        existente.quantidade += quantidade;
+      } else {
+        denuncia.materiais.push({ tipo: materialSelecionado, quantidade });
+      }
+      materiais[materialSelecionado].quantidade -= quantidade;
+      alert("Material associado com sucesso!");
+    }
+  
+    localStorage.setItem("materiaisPorTipo", JSON.stringify(materiais));
+    localStorage.setItem("denuncias", JSON.stringify(denuncias));
   });
   
