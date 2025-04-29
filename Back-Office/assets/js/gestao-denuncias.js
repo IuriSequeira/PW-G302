@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('detalheDescricao').textContent = denuncia.descricao;
     document.getElementById('detalheData').textContent = formatarData(denuncia.data);
     document.getElementById('estadoDenuncia').value = denuncia.estado;
+    
   
     const ficheirosContainer = document.getElementById('detalheFicheiros');
     ficheirosContainer.innerHTML = "";

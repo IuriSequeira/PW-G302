@@ -46,6 +46,10 @@ window.addEventListener("DOMContentLoaded", function () {
         const ficheiros = ficheirosInput ? ficheirosInput.files : [];
         data.ficheiros = [];
 
+        data.perito = "";     // Inicializar campo Perito vazio
+        data.materiais = "";  // Inicializar campo Materiais vazio
+
+
         if (ficheiros.length === 0) {
           resolve(data);
         } else {
