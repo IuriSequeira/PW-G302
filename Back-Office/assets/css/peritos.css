@@ -138,5 +138,12 @@
     background-color: rgba(7, 190, 148, 0.8); /* Fundo verde mais forte e saturado */
 }
 
+.card-img-left {
+    height: 100%;
+    object-fit: cover;
+  }
+  .card-body {
+    padding: 1.5rem;
+  }  
 
 

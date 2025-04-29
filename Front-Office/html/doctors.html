@@ -116,67 +116,10 @@
   <div class="container">
       <h1 class="text-center mb-5 wow fadeInUp">O valor dos Nossos Peritos</h1>
       
-      <div class="row">
-          <!-- Dr. Jorge Soares -->
-          <div class="col-md-12 mb-5">
-              <div class="card shadow-lg d-flex flex-row" style="max-width: 100%; border-radius: 15px;">
-                  <img src="../assets/img/doctors/técnico de laboratório.jpg" class="card-img-left" alt="Dr. Jorge Soares" style="width: 35%; object-fit: cover; border-top-left-radius: 15px; border-bottom-left-radius: 15px;">
-                  <div class="card-body">
-                      <h5 class="card-title">Dr. Jorge Soares</h5>
-                      <p class="text-muted">Técnico de Laboratório</p>
-                      <p class="card-text">Com uma vasta experiência em análises laboratoriais, o Dr. Jorge Soares iniciou sua carreira em um dos maiores hospitais da cidade, onde ficou responsável por diversas áreas de testes clínicos. Ao longo dos anos, aprimorou suas habilidades em garantir a precisão dos resultados, colaborando com as equipes médicas para oferecer diagnósticos rápidos e confiáveis. Sua experiência se estende à implementação de novas tecnologias de laboratório, tornando-o um dos profissionais mais respeitados no setor de saúde.</p>
-                  </div>
-              </div>
-          </div>
-
-          <!-- Dr. Pedro Almeida -->
-          <div class="col-md-12 mb-5">
-              <div class="card shadow-lg d-flex flex-row" style="max-width: 100%; border-radius: 15px;">
-                  <img src="../assets/img/doctors/engenheiro ambiental.jpg" class="card-img-left" alt="Dr. Pedro Almeida" style="width: 35%; object-fit: cover; border-top-left-radius: 15px; border-bottom-left-radius: 15px;">
-                  <div class="card-body">
-                      <h5 class="card-title">Dr. Pedro Almeida</h5>
-                      <p class="text-muted">Engenheiro Ambiental</p>
-                      <p class="card-text">O Dr. Pedro Almeida é um especialista em soluções ambientais, com foco na sustentabilidade e no gerenciamento de recursos naturais. Com um doutorado em Engenharia Ambiental, ele tem sido uma peça chave em projetos que visam melhorar a qualidade do ar e da água em instalações de saúde, além de implementar práticas sustentáveis em diversos setores. Seu trabalho não só contribui para um ambiente mais saudável, mas também ajuda as organizações a cumprirem regulamentações ambientais rigorosas.</p>
-                  </div>
-              </div>
-          </div>
-
-          <!-- Dr. Carlos Macedo -->
-          <div class="col-md-12 mb-5">
-              <div class="card shadow-lg d-flex flex-row" style="max-width: 100%; border-radius: 15px;">
-                  <img src="../assets/img/auditor.jpg" class="card-img-left" alt="Dr. Carlos Macedo" style="width: 35%; object-fit: cover; border-top-left-radius: 15px; border-bottom-left-radius: 15px;">
-                  <div class="card-body">
-                      <h5 class="card-title">Dr. Carlos Macedo</h5>
-                      <p class="text-muted">Auditor de Qualidade</p>
-                      <p class="card-text">Com anos de experiência em auditoria de qualidade em serviços de saúde, o Dr. Carlos Macedo tem se dedicado a promover os mais altos padrões de atendimento. Sua abordagem meticulosa e análise detalhada ajudaram muitas organizações a superar auditorias e a melhorar seus processos internos, garantindo a segurança dos pacientes e a qualidade do atendimento. Além disso, ele desenvolve treinamentos internos para preparar as equipes para aderir aos padrões de qualidade exigidos.</p>
-                  </div>
-              </div>
-          </div>
-
-          <!-- Dra. Diana Santos -->
-          <div class="col-md-12 mb-5">
-              <div class="card shadow-lg d-flex flex-row" style="max-width: 100%; border-radius: 15px;">
-                  <img src="../assets/img/enfermeira.jpg" class="card-img-left" alt="Dra. Diana Santos" style="width: 35%; object-fit: cover; border-top-left-radius: 15px; border-bottom-left-radius: 15px;">
-                  <div class="card-body">
-                      <h5 class="card-title">Dra. Diana Santos</h5>
-                      <p class="text-muted">Enfermeira Auditora</p>
-                      <p class="card-text">A Dra. Diana Santos é uma enfermeira auditora com um olhar atento às melhores práticas em cuidados de saúde. Ela desempenha um papel essencial em garantir que os padrões de cuidados sejam seguidos rigorosamente, auditando processos e procedimentos dentro das unidades de saúde. Sua formação contínua e experiência prática em ambientes clínicos a tornam uma autoridade quando o assunto é a melhoria da qualidade dos serviços de enfermagem e atendimento ao paciente.</p>
-                  </div>
-              </div>
-          </div>
-
-          <!-- Dra. Maria Peixoto -->
-          <div class="col-md-12 mb-5">
-              <div class="card shadow-lg d-flex flex-row" style="max-width: 100%; border-radius: 15px;">
-                  <img src="../assets/img/enfermeiraSegurança2.jpg" class="card-img-left" alt="Dra. Maria Peixoto" style="width: 35%; object-fit: cover; border-top-left-radius: 15px; border-bottom-left-radius: 15px;">
-                  <div class="card-body">
-                      <h5 class="card-title">Dra. Maria Peixoto</h5>
-                      <p class="text-muted">Enfermeira de Segurança do Paciente</p>
-                      <p class="card-text">A Dra. Maria Peixoto é uma especialista em segurança do paciente, com uma carreira focada na implementação de protocolos de segurança e práticas preventivas. Ela tem trabalhado em estreita colaboração com equipes médicas e administrativas para garantir que todos os procedimentos sejam realizados de forma segura, minimizando riscos e promovendo a saúde geral dos pacientes. Seu compromisso com a segurança é inabalável, e ela é uma defensora ativa na formação de novas políticas de segurança no setor da saúde.</p>
-                  </div>
-              </div>
-          </div>
+      <div class="row" id="lista-peritos-front">
+        <!-- Os peritos serão inseridos dinamicamente aqui -->
       </div>
+      
   </div>
 </div><!-- .banner-home -->
 
@@ -240,6 +183,8 @@
 <script src="../assets/vendor/wow/wow.min.js"></script>
 
 <script src="../assets/js/theme.js"></script>
+
+<script src="../assets/js/doctors.js"></script>
   
 </body>
 </html>
