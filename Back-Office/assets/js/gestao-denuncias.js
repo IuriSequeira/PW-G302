@@ -210,24 +210,41 @@ document.addEventListener("DOMContentLoaded", function() {
     const selectPerito = document.getElementById("selectPerito");
     const selectMaterial = document.getElementById("selectMaterial");
   
-    selectPerito.innerHTML = peritos.map(perito => `<option value="${perito.nome}">${perito.nome}</option>`).join('');
+    selectPerito.innerHTML = '<option value="">-- Nenhum --</option>' + peritos.map(perito => `<option value="${perito.nome}">${perito.nome}</option>`).join('');
+
     selectMaterial.innerHTML = Object.keys(materiais).map(key => `<option value="${key}">${materiais[key].nome}</option>`).join('');
   }
   document.getElementById("modalAssociarPerito").addEventListener("show.bs.modal", preencherSelects);
   
   document.getElementById("btnAssociarPerito").addEventListener("click", function() {
     const peritoSelecionado = document.getElementById("selectPerito").value;
+  
     if (denunciaSelecionadaIndex !== null) {
+      const denuncias = JSON.parse(localStorage.getItem("denuncias")) || [];
+  
+      // Se o utilizador estiver a remover o perito
       if (peritoSelecionado === '') {
         delete denuncias[denunciaSelecionadaIndex].perito;
         alert("Perito removido com sucesso!");
       } else {
+        // Verificar quantas denúncias o perito já tem
+        const totalDoPerito = denuncias.filter(d => d.perito === peritoSelecionado).length;
+  
+        if (totalDoPerito >= 3 && denuncias[denunciaSelecionadaIndex].perito !== peritoSelecionado) {
+          alert(`O perito "${peritoSelecionado}" já tem o número máximo de 3 denúncias associadas.`);
+          return;
+        }
+  
         denuncias[denunciaSelecionadaIndex].perito = peritoSelecionado;
         alert("Perito associado com sucesso!");
       }
+  
       localStorage.setItem("denuncias", JSON.stringify(denuncias));
+      carregarDenuncias();
+      const modal = bootstrap.Modal.getInstance(document.getElementById('modalAssociarPerito'));
+      modal.hide();
     }
-  });
+  });  
   
   
   document.getElementById("btnAssociarMaterial").addEventListener("click", function () {

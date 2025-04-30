@@ -15,6 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function criarCard(perito) {
+    const denuncias = JSON.parse(localStorage.getItem('denuncias')) || [];
+    const denunciasDoPerito = denuncias.filter(d => d.perito === perito.nome);
+    const totalDenuncias = denunciasDoPerito.length;
+  
     return `
       <div class="col-md-12 mb-4">
         <div class="card shadow-lg d-flex flex-row" style="max-width: 100%; border-radius: 15px;">
@@ -33,12 +37,14 @@ document.addEventListener('DOMContentLoaded', function () {
             <h5 class="card-title mt-2">${perito.nome}</h5>
             <p class="text-muted mb-1">${perito.especialidade}</p>
             <p class="fw-bold mb-1">Valor: ${perito.valor ? `€${perito.valor}` : 'N/D'}</p>
+            <p class="mt-2"><strong>Denúncias Associadas:</strong> ${totalDenuncias}</p>
             <p class="card-text">${perito.descricao || ''}</p>
           </div>
         </div>
       </div>
     `;
-  }  
+  }
+  
 
   function atualizarLista() {
       const peritos = obterPeritos();
