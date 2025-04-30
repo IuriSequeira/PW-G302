@@ -62,8 +62,14 @@ document.addEventListener("DOMContentLoaded", function() {
     if (estado === "cancelada") return "Cancelada";
   }
   
-  function verDetalhes(index) {
-    const denuncia = denuncias[index];
+  function verDetalhes(index, dadosAlternativos = null) {
+    const denuncia = { ...denuncias[index] };
+      // Se houver dados alternativos, aplica-os temporariamente
+      if (dadosAlternativos) {
+        if (dadosAlternativos.materiais) denuncia.materiais = dadosAlternativos.materiais;
+        if (dadosAlternativos.perito) denuncia.perito = dadosAlternativos.perito;
+      }
+
     denunciaSelecionadaIndex = index;
   
     // Preencher campos principais
@@ -162,64 +168,91 @@ document.addEventListener("DOMContentLoaded", function() {
     preencherSelects();
   }  
   
-  document.getElementById('guardarEstadoBtn').addEventListener('click', function () {
+  document.getElementById('guardarEstadoBtn').addEventListener('click', async function () {
     const novoEstado = document.getElementById('estadoDenuncia').value;
     const explicacao = document.getElementById('explicacaoFinal').value.trim();
   
-    if (denunciaSelecionadaIndex !== null) {
-      const denuncias = JSON.parse(localStorage.getItem('denuncias')) || [];
-      const denuncia = denuncias[denunciaSelecionadaIndex];
+    if (denunciaSelecionadaIndex === null) return;
   
-      if ((novoEstado === "finalizada" || novoEstado === "cancelada") && explicacao === "") {
-        alert("Por favor, escreve a explicação antes de finalizar ou cancelar a denúncia.");
-        return;
+    const denuncias = JSON.parse(localStorage.getItem('denuncias')) || [];
+    const materiaisStock = JSON.parse(localStorage.getItem("materiaisPorTipo")) || {};
+    const peritos = JSON.parse(localStorage.getItem("peritos")) || [];
+    const denuncia = denuncias[denunciaSelecionadaIndex];
+  
+    if ((novoEstado === "finalizada" || novoEstado === "cancelada") && explicacao === "") {
+      alert("Por favor, escreve a explicação antes de finalizar ou cancelar a denúncia.");
+      return;
+    }
+  
+    // Guardar cópias para o relatório
+    const materiaisUsados = denuncia.materiais ? JSON.parse(JSON.stringify(denuncia.materiais)) : [];
+    const peritoUsado = denuncia.perito || null;
+  
+    // Obter valor do perito
+    const peritoInfo = peritos.find(p => p.nome === peritoUsado);
+    const valorPerito = peritoInfo?.valor ? parseFloat(peritoInfo.valor) : 0;
+  
+    // Adicionar valor por material
+    const materiaisComValor = materiaisUsados.map(m => {
+      const info = materiaisStock[m.tipo] || {};
+      return {
+        tipo: m.tipo,
+        quantidade: m.quantidade,
+        valor: info.preco || 0
+      };
+    });
+  
+    // Criar relatório com dados completos
+    const relatorio = {
+      dataGeracao: new Date().toLocaleString(),
+      estadoFinal: novoEstado,
+      explicacao,
+      denuncia: {
+        ...denuncia,
+        materiais: materiaisComValor,
+        perito: peritoUsado,
+        valorPerito
       }
+    };
   
-      const materiaisStock = JSON.parse(localStorage.getItem("materiaisPorTipo")) || {};
-      const materiaisUsados = denuncia.materiais ? [...denuncia.materiais] : [];
-      const peritoUsado = denuncia.perito;
+    // Atualizar o estado da denúncia
+    denuncia.estado = novoEstado;
   
+    if (novoEstado === "finalizada" || novoEstado === "cancelada") {
       // Devolver materiais ao stock
-      if (novoEstado === "finalizada" || novoEstado === "cancelada") {
-        materiaisUsados.forEach(m => {
-          if (!materiaisStock[m.tipo]) return;
-          materiaisStock[m.tipo].quantidade += m.quantidade;
-        });
+      materiaisUsados.forEach(m => {
+        if (!materiaisStock[m.tipo]) return;
+        materiaisStock[m.tipo].quantidade += m.quantidade;
+      });
   
-        // Limpar materiais e perito da denúncia
-        delete denuncia.materiais;
-        delete denuncia.perito;
+      // Limpar materiais e perito da denúncia original
+      delete denuncia.materiais;
+      delete denuncia.perito;
   
-        localStorage.setItem("materiaisPorTipo", JSON.stringify(materiaisStock));
-      }
-  
-      // Atualizar estado
-      denuncia.estado = novoEstado;
+      // Atualizar stock
+      localStorage.setItem("materiaisPorTipo", JSON.stringify(materiaisStock));
   
       // Guardar relatório
-      if (novoEstado === "finalizada" || novoEstado === "cancelada") {
-        const relatorios = JSON.parse(localStorage.getItem("relatorios")) || [];
-  
-        relatorios.push({
-          dataGeracao: new Date().toLocaleString(),
-          estadoFinal: novoEstado,
-          explicacao,
-          denuncia: {
-            ...denuncia,
-            materiais: materiaisUsados,
-            perito: peritoUsado
-          }
-        });
-  
-        localStorage.setItem("relatorios", JSON.stringify(relatorios));
-        alert("Relatório final gerado com sucesso!");
-      }
-  
-      localStorage.setItem("denuncias", JSON.stringify(denuncias));
-      carregarDenuncias();
-      const modal = bootstrap.Modal.getInstance(document.getElementById('modalDetalhesDenuncia'));
-      modal.hide();
+      const relatorios = JSON.parse(localStorage.getItem("relatorios")) || [];
+      relatorios.push(relatorio);
+      localStorage.setItem("relatorios", JSON.stringify(relatorios));
     }
+  
+    // Guardar alterações da denúncia
+    localStorage.setItem("denuncias", JSON.stringify(denuncias));
+    carregarDenuncias();
+  
+    const modal = bootstrap.Modal.getInstance(document.getElementById('modalDetalhesDenuncia'));
+    modal.hide();
+  
+    setTimeout(() => {
+      verDetalhes(denunciaSelecionadaIndex, {
+        materiais: materiaisUsados,
+        perito: peritoUsado
+      });
+    }, 300);
+  
+    alert("Denúncia atualizada e relatório final gerado com sucesso.");
   });  
 
   function abrirAssociarPerito(index) {
