@@ -148,43 +148,79 @@ document.addEventListener("DOMContentLoaded", function() {
     // Abrir modal
     const modal = new bootstrap.Modal(document.getElementById('modalDetalhesDenuncia'));
     modal.show();
-  
+    
+    const selectEstado = document.getElementById("estadoDenuncia");
+    const explicacaoContainer = document.getElementById("explicacaoContainer");
+    selectEstado.addEventListener("change", function () {
+      explicacaoContainer.style.display = (this.value === "finalizada" || this.value === "cancelada") ? "block" : "none";
+    });
+
+    // Mostrar se já estiver em finalizada/cancelada
+    explicacaoContainer.style.display = (selectEstado.value === "finalizada" || selectEstado.value === "cancelada") ? "block" : "none";
+
     // Atualizar selects de Peritos e Materiais
     preencherSelects();
   }  
   
-  document.getElementById('guardarEstadoBtn').addEventListener('click', function() {
+  document.getElementById('guardarEstadoBtn').addEventListener('click', function () {
     const novoEstado = document.getElementById('estadoDenuncia').value;
+    const explicacao = document.getElementById('explicacaoFinal').value.trim();
+  
     if (denunciaSelecionadaIndex !== null) {
-      denuncias[denunciaSelecionadaIndex].estado = novoEstado;
-      localStorage.setItem('denuncias', JSON.stringify(denuncias));
+      const denuncias = JSON.parse(localStorage.getItem('denuncias')) || [];
+      const denuncia = denuncias[denunciaSelecionadaIndex];
+  
+      if ((novoEstado === "finalizada" || novoEstado === "cancelada") && explicacao === "") {
+        alert("Por favor, escreve a explicação antes de finalizar ou cancelar a denúncia.");
+        return;
+      }
+  
+      const materiaisStock = JSON.parse(localStorage.getItem("materiaisPorTipo")) || {};
+      const materiaisUsados = denuncia.materiais ? [...denuncia.materiais] : [];
+      const peritoUsado = denuncia.perito;
+  
+      // Devolver materiais ao stock
+      if (novoEstado === "finalizada" || novoEstado === "cancelada") {
+        materiaisUsados.forEach(m => {
+          if (!materiaisStock[m.tipo]) return;
+          materiaisStock[m.tipo].quantidade += m.quantidade;
+        });
+  
+        // Limpar materiais e perito da denúncia
+        delete denuncia.materiais;
+        delete denuncia.perito;
+  
+        localStorage.setItem("materiaisPorTipo", JSON.stringify(materiaisStock));
+      }
+  
+      // Atualizar estado
+      denuncia.estado = novoEstado;
+  
+      // Guardar relatório
+      if (novoEstado === "finalizada" || novoEstado === "cancelada") {
+        const relatorios = JSON.parse(localStorage.getItem("relatorios")) || [];
+  
+        relatorios.push({
+          dataGeracao: new Date().toLocaleString(),
+          estadoFinal: novoEstado,
+          explicacao,
+          denuncia: {
+            ...denuncia,
+            materiais: materiaisUsados,
+            perito: peritoUsado
+          }
+        });
+  
+        localStorage.setItem("relatorios", JSON.stringify(relatorios));
+        alert("Relatório final gerado com sucesso!");
+      }
+  
+      localStorage.setItem("denuncias", JSON.stringify(denuncias));
       carregarDenuncias();
       const modal = bootstrap.Modal.getInstance(document.getElementById('modalDetalhesDenuncia'));
       modal.hide();
     }
-
-    function preencherSelects() {
-      const peritos = JSON.parse(localStorage.getItem("peritos")) || [];
-      const materiais = JSON.parse(localStorage.getItem("materiaisPorTipo")) || {};
-    
-      const selectPerito = document.getElementById("selectPerito");
-      const selectMaterial = document.getElementById("selectMaterial");
-    
-      // Preencher peritos
-      if (selectPerito) {
-        selectPerito.innerHTML = '<option value="">-- Nenhum --</option>' + 
-          peritos.map(p => `<option value="${p.nome}">${p.nome}</option>`).join('');
-      }
-    
-      // Preencher materiais
-      if (selectMaterial) {
-        selectMaterial.innerHTML = Object.keys(materiais).map(tipo =>
-          `<option value="${tipo}">${materiais[tipo].nome}</option>`
-        ).join('');
-      }
-    }    
-    
-  });
+  });  
 
   function abrirAssociarPerito(index) {
     denunciaSelecionadaIndex = index;
