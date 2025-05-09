@@ -12,16 +12,25 @@ window.addEventListener("DOMContentLoaded", function () {
   if (denunciaForm) {
     denunciaForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-
+    
+      // ✅ NOVO: Limite de 15 denúncias em análise
+      const denuncias = JSON.parse(localStorage.getItem("denuncias")) || [];
+      const emAnalise = denuncias.filter(d => d.estado === "analisar");
+    
+      if (emAnalise.length >= 15) {
+        mostrarMensagem("Limite Atingido", "Neste momento não é possível submeter a sua denúncia. Por favor, esteja atento ao site para quando houver disponibilidade.", "bg-warning");
+        return;
+      }
+    
       try {
         const data = await getDenunciaFormData();
         const codigoPostal = data.codPostal.trim();
-
+    
         if (!(codigoPostal.startsWith("47") || codigoPostal.startsWith("48"))) {
           mostrarMensagem("Erro", "A EyesEverywhere apenas atua no distrito de Braga.", "bg-danger");
           return;
         }
-
+    
         data.estado = "analisar";
         guardarEmLocalStorage("denuncias", data);
         mostrarMensagem("Sucesso", "Denúncia guardada com sucesso!", "bg-success");
@@ -29,7 +38,7 @@ window.addEventListener("DOMContentLoaded", function () {
       } catch (err) {
         console.error("Erro ao ler ficheiros:", err);
       }
-    });
+    });    
 
     function getDenunciaFormData() {
       return new Promise((resolve, reject) => {
