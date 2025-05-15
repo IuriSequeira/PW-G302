@@ -137,20 +137,26 @@ document.addEventListener("DOMContentLoaded", function() {
       listaMateriais.innerHTML = "<li class='list-group-item text-muted'>Nenhum material associado.</li>";
     }
   
-    // Perito associado
-    if (denuncia.perito) {
-      const peritos = JSON.parse(localStorage.getItem("peritos")) || [];
-      const peritoInfo = peritos.find(p => p.nome === denuncia.perito);
-  
-      if (peritoInfo) {
-        peritoAssociado.textContent = `${peritoInfo.nome} - €${peritoInfo.valor ? parseFloat(peritoInfo.valor).toFixed(2) : "N/D"}`;
-        if (peritoInfo.valor) total += parseFloat(peritoInfo.valor);
+      // Peritos associados
+      if (Array.isArray(denuncia.peritos) && denuncia.peritos.length > 0) {
+        const peritos = JSON.parse(localStorage.getItem("peritos")) || [];
+        const detalhes = denuncia.peritos.map(nome => {
+          const info = peritos.find(p => p.nome === nome);
+          return info
+            ? `${info.nome} - €${info.valor ? parseFloat(info.valor).toFixed(2) : "N/D"}`
+            : `${nome} (Informação indisponível)`;
+        });
+        peritoAssociado.innerHTML = detalhes.join("<br>");
+
+        // Somar valores ao total
+        detalhes.forEach(texto => {
+          const match = texto.match(/€([\d,\.]+)/);
+          const valor = match ? parseFloat(match[1].replace(',', '.')) : 0;
+          if (!isNaN(valor)) total += valor;
+        });
       } else {
-        peritoAssociado.textContent = `${denuncia.perito} (Informação indisponível)`;
+        peritoAssociado.textContent = "Nenhum perito associado.";
       }
-    } else {
-      peritoAssociado.textContent = "Nenhum perito associado.";
-    }
   
     // Mostrar Total
     totalDenuncia.textContent = `Total: €${total.toFixed(2)}`;
@@ -193,11 +199,18 @@ document.addEventListener("DOMContentLoaded", function() {
   
     // Guardar cópias para o relatório
     const materiaisUsados = denuncia.materiais ? JSON.parse(JSON.stringify(denuncia.materiais)) : [];
-    const peritoUsado = denuncia.perito || null;
-  
-    // Obter valor do perito
-    const peritoInfo = peritos.find(p => p.nome === peritoUsado);
-    const valorPerito = peritoInfo?.valor ? parseFloat(peritoInfo.valor) : 0;
+    const peritosUsados = Array.isArray(denuncia.peritos) ? denuncia.peritos : [];
+
+    const peritosComValor = peritosUsados.map(nome => {
+      const info = peritos.find(p => p.nome === nome);
+      return {
+        nome,
+        valor: info?.valor ? parseFloat(info.valor) : 0
+      };
+    });
+
+    const valorTotalPeritos = peritosComValor.reduce((soma, p) => soma + p.valor, 0);
+
   
     // Adicionar valor por material
     const materiaisComValor = materiaisUsados.map(m => {
@@ -217,9 +230,10 @@ document.addEventListener("DOMContentLoaded", function() {
       denuncia: {
         ...denuncia,
         materiais: materiaisComValor,
-        perito: peritoUsado,
-        valorPerito
+        peritos: peritosComValor,
+        valorTotalPeritos
       }
+
     };
   
     // Atualizar o estado da denúncia
@@ -255,23 +269,41 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => {
       verDetalhes(denunciaSelecionadaIndex, {
         materiais: materiaisUsados,
-        perito: peritoUsado
       });
     }, 300);
   
     alert("Denúncia atualizada e relatório final gerado com sucesso.");
   });  
 
-  function abrirAssociarPerito(index) {
-    denunciaSelecionadaIndex = index;
-    const denuncia = denuncias[index];
-  
-    document.getElementById('modalAssociarPeritoTitulo').textContent = `Associar Perito à denúncia #${index + 1}`;
-    document.getElementById('selectPerito').value = denuncia.perito || '';
-    
-    const modal = new bootstrap.Modal(document.getElementById('modalAssociarPerito'));
-    modal.show();
+function abrirAssociarPerito(index) {
+  denunciaSelecionadaIndex = index;
+  const denuncia = denuncias[index];
+
+  document.getElementById('modalAssociarPeritoTitulo').textContent = `Associar Perito à denúncia #${index + 1}`;
+  document.getElementById('selectPerito').value = '';
+
+  // Atualizar lista de peritos já associados
+  const listaUl = document.getElementById("listaPeritosAssociados");
+  listaUl.innerHTML = "";
+
+  if (Array.isArray(denuncia.peritos) && denuncia.peritos.length > 0) {
+    denuncia.peritos.forEach(nome => {
+      const li = document.createElement("li");
+      li.className = "list-group-item";
+      li.textContent = nome;
+      listaUl.appendChild(li);
+    });
+  } else {
+    const li = document.createElement("li");
+    li.className = "list-group-item text-muted";
+    li.textContent = "Nenhum perito associado.";
+    listaUl.appendChild(li);
   }
+
+  const modal = new bootstrap.Modal(document.getElementById('modalAssociarPerito'));
+  modal.show();
+}
+
   
   function abrirAssociarMaterial(index) {
     denunciaSelecionadaIndex = index;
@@ -292,35 +324,48 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   document.getElementById("modalAssociarPerito").addEventListener("show.bs.modal", preencherSelects);
   
-  document.getElementById("btnAssociarPerito").addEventListener("click", function() {
-    const peritoSelecionado = document.getElementById("selectPerito").value;
-  
-    if (denunciaSelecionadaIndex !== null) {
-      const denuncias = JSON.parse(localStorage.getItem("denuncias")) || [];
-  
-      // Se o utilizador estiver a remover o perito
-      if (peritoSelecionado === '') {
-        delete denuncias[denunciaSelecionadaIndex].perito;
-        alert("Perito removido com sucesso!");
-      } else {
-        // Verificar quantas denúncias o perito já tem
-        const totalDoPerito = denuncias.filter(d => d.perito === peritoSelecionado).length;
-  
-        if (totalDoPerito >= 3 && denuncias[denunciaSelecionadaIndex].perito !== peritoSelecionado) {
-          alert(`O perito "${peritoSelecionado}" já tem o número máximo de 3 denúncias associadas.`);
-          return;
-        }
-  
-        denuncias[denunciaSelecionadaIndex].perito = peritoSelecionado;
-        alert("Perito associado com sucesso!");
-      }
-  
-      localStorage.setItem("denuncias", JSON.stringify(denuncias));
-      carregarDenuncias();
-      const modal = bootstrap.Modal.getInstance(document.getElementById('modalAssociarPerito'));
-      modal.hide();
+document.getElementById("btnAssociarPerito").addEventListener("click", function () {
+  const peritoSelecionado = document.getElementById("selectPerito").value;
+
+  if (!peritoSelecionado) {
+    alert("Seleciona um perito válido.");
+    return;
+  }
+
+  if (denunciaSelecionadaIndex !== null) {
+    const denuncias = JSON.parse(localStorage.getItem("denuncias")) || [];
+    const denuncia = denuncias[denunciaSelecionadaIndex];
+
+    // Inicializa o array se não existir
+    if (!Array.isArray(denuncia.peritos)) {
+      denuncia.peritos = [];
     }
-  });  
+
+    // Verifica se já está associado
+    if (denuncia.peritos.includes(peritoSelecionado)) {
+      alert("Este perito já está associado a esta denúncia.");
+      return;
+    }
+
+    // Verifica limite de 3 por perito no total
+    const totalDoPerito = denuncias.filter(d => Array.isArray(d.peritos) && d.peritos.includes(peritoSelecionado)).length;
+    if (totalDoPerito >= 3) {
+      alert(`O perito "${peritoSelecionado}" já está associado ao máximo de 3 denúncias.`);
+      return;
+    }
+
+    // Associa
+    denuncia.peritos.push(peritoSelecionado);
+
+    localStorage.setItem("denuncias", JSON.stringify(denuncias));
+    carregarDenuncias();
+
+    alert("Perito associado com sucesso!");
+
+    const modal = bootstrap.Modal.getInstance(document.getElementById('modalAssociarPerito'));
+    modal.hide();
+  }
+});
   
   
   document.getElementById("btnAssociarMaterial").addEventListener("click", function () {
