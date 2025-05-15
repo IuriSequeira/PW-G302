@@ -45,21 +45,34 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("materiaisPorTipo", JSON.stringify(tiposMateriais));
     }
   
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const tipoSelecionado = select.value.toLowerCase();
-      if (tiposMateriais[tipoSelecionado]) {
-        
-      const quantidadeInput = document.getElementById("quantidadeMaterial");
-      const quantidade = parseInt(quantidadeInput.value, 10) || 1;
-      tiposMateriais[tipoSelecionado].quantidade += quantidade;
-      
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const tipoSelecionado = document.getElementById("estadoPerito").value;
+        const acao = document.getElementById("acaoMaterial").value;
+        const quantidadeInput = document.getElementById("quantidadeMaterial");
+        const quantidade = parseInt(quantidadeInput.value, 10) || 1;
+
+        if (!tiposMateriais[tipoSelecionado]) {
+          alert("Tipo de material inválido.");
+          return;
+        }
+
+        if (acao === "inserir") {
+          tiposMateriais[tipoSelecionado].quantidade += quantidade;
+        } else if (acao === "retirar") {
+          tiposMateriais[tipoSelecionado].quantidade = Math.max(
+            0,
+            tiposMateriais[tipoSelecionado].quantidade - quantidade
+          );
+        }
+
         guardarNoLocalStorage();
         renderizarMateriais();
         form.reset();
         bootstrap.Modal.getInstance(document.getElementById("peritoModal")).hide();
-      }
-    });
+      });
+
   
     carregarDoLocalStorage();
     renderizarMateriais();
