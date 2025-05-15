@@ -354,48 +354,53 @@ createApp({
 }).mount("#grafico-perfil");
 
 
-(function () {
-  const denuncias = JSON.parse(localStorage.getItem("denuncias")) || [];
+createApp({
+  setup() {
+    onMounted(() => {
+      const denuncias = JSON.parse(localStorage.getItem("denuncias")) || [];
 
-  const categorias = {};
-  denuncias.forEach(d => {
-    const categoria = (d.categoria || "").trim().toLowerCase();
-    if (!categoria) return;
-    categorias[categoria] = (categorias[categoria] || 0) + 1;
-  });
+      const categorias = {};
+      denuncias.forEach(d => {
+        const categoria = (d.categoria || "").trim().toLowerCase();
+        if (!categoria) return;
+        categorias[categoria] = (categorias[categoria] || 0) + 1;
+      });
 
-  const ordenadas = Object.entries(categorias).sort((a, b) => b[1] - a[1]);
-  const labels = ordenadas.map(([cat]) => cat.charAt(0).toUpperCase() + cat.slice(1));
-  const dados = ordenadas.map(([, count]) => parseInt(count, 10));
-  const cores = labels.map((_, i) => `hsl(${i * 60 % 360}, 70%, 60%)`);
+      const ordenadas = Object.entries(categorias).sort((a, b) => b[1] - a[1]);
+      const labels = ordenadas.map(([cat]) => cat.charAt(0).toUpperCase() + cat.slice(1));
+      const dados = ordenadas.map(([, count]) => parseInt(count, 10));
+      const cores = labels.map((_, i) => `hsl(${i * 60 % 360}, 70%, 60%)`);
 
-  const ctx = document.getElementById("canvas-categorias");
-  if (!ctx) return;
+      const ctx = document.getElementById("canvas-categorias").getContext("2d");
 
-  new Chart(ctx.getContext("2d"), {
-    type: 'doughnut',
-    data: {
-      labels,
-      datasets: [{
-        label: 'Distribuição por Categoria',
-        data: dados,
-        backgroundColor: cores
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: { position: 'bottom' },
-        tooltip: {
-          callbacks: {
-            label: ctx => {
-              const total = dados.reduce((a, b) => a + b, 0);
-              const percent = total ? Math.round((ctx.raw / total) * 100) : 0;
-              return `${ctx.label}: ${ctx.raw} (${percent}%)`;
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels,
+          datasets: [{
+            label: 'Distribuição por Categoria',
+            data: dados,
+            backgroundColor: cores
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'bottom'
+            },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => {
+                  const total = dados.reduce((a, b) => a + b, 0);
+                  const percent = total ? Math.round((ctx.raw / total) * 100) : 0;
+                  return `${ctx.label}: ${ctx.raw} (${percent}%)`;
+                }
+              }
             }
           }
         }
-      }
-    }
-  });
-})();
+      });
+    });
+  }
+}).mount("#grafico-categorias");
