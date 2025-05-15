@@ -245,10 +245,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!materiaisStock[m.tipo]) return;
         materiaisStock[m.tipo].quantidade += m.quantidade;
       });
-  
-      // Limpar materiais e perito da denúncia original
-      delete denuncia.materiais;
-      delete denuncia.perito;
+
   
       // Atualizar stock
       localStorage.setItem("materiaisPorTipo", JSON.stringify(materiaisStock));
@@ -257,6 +254,10 @@ document.addEventListener("DOMContentLoaded", function() {
       const relatorios = JSON.parse(localStorage.getItem("relatorios")) || [];
       relatorios.push(relatorio);
       localStorage.setItem("relatorios", JSON.stringify(relatorios));
+
+        // Limpar materiais e peritos da denúncia original
+        delete denuncia.materiais;
+        delete denuncia.peritos;
     }
   
     // Guardar alterações da denúncia
