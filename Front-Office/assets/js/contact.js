@@ -16,7 +16,8 @@ document.querySelector('.contact-form').addEventListener('submit', function(e) {
     email,
     assunto,
     mensagem,
-    data: new Date().toLocaleString()
+    data: new Date().toLocaleString(),
+    estado: "A Rever"
   };
 
   const pedidos = JSON.parse(localStorage.getItem('pedidosAjuda')) || [];
