@@ -32,9 +32,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td class="cell">#${index + 1}</td>
+      <td class="cell">${denuncia.categoria || '<span class="text-muted">-</span>'}</td>
       <td class="cell"><span class="truncate">${denuncia.descricao}</span></td>
       <td class="cell">${denuncia.nome}</td>
       <td class="cell"><span>${formatarData(denuncia.data)}</span></td>
+      <td class="cell">${denuncia.grau ? `Grau ${denuncia.grau}` : '<span class="text-muted">-</span>'}</td>
       <td class="cell"><span class="badge ${getBadgeClass(denuncia.estado)}">${formatarEstado(denuncia.estado)}</span></td>
       <td class="cell"><button class="btn-sm app-btn-secondary" onclick="abrirAssociarMaterial(${index})">Materiais</button></td>
       <td class="cell"><button class="btn-sm app-btn-secondary" onclick="abrirAssociarPerito(${index})">Peritos</button></td>
@@ -76,9 +78,11 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('detalheNome').textContent = denuncia.nome;
     document.getElementById('detalheEmail').textContent = denuncia.email;
     document.getElementById('detalheLocalizacao').textContent = denuncia.localizacao;
+    document.getElementById('detalheCategoria').textContent = denuncia.categoria || "-";
     document.getElementById('detalheDescricao').textContent = denuncia.descricao;
     document.getElementById('detalheData').textContent = formatarData(denuncia.data);
     document.getElementById('estadoDenuncia').value = denuncia.estado;
+    document.getElementById("grauImportancia").value = denuncia.grau || "";
   
     // Mostrar ficheiros
     const ficheirosContainer = document.getElementById('detalheFicheiros');
@@ -171,6 +175,7 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById('guardarEstadoBtn').addEventListener('click', async function () {
     const novoEstado = document.getElementById('estadoDenuncia').value;
     const explicacao = document.getElementById('explicacaoFinal').value.trim();
+    const novoGrau = document.getElementById("grauImportancia").value;
   
     if (denunciaSelecionadaIndex === null) return;
   
@@ -183,6 +188,8 @@ document.addEventListener("DOMContentLoaded", function() {
       alert("Por favor, escreve a explicação antes de finalizar ou cancelar a denúncia.");
       return;
     }
+
+    denuncia.grau = novoGrau;
   
     // Guardar cópias para o relatório
     const materiaisUsados = denuncia.materiais ? JSON.parse(JSON.stringify(denuncia.materiais)) : [];

@@ -84,6 +84,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
         data.perito = "";     // Inicializar campo Perito vazio
         data.materiais = "";  // Inicializar campo Materiais vazio
+        data.grau = "";
 
         if (ficheiros.length === 0) {
           resolve(data);

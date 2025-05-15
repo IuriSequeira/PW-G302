@@ -467,9 +467,11 @@
 										<thead>
 											<tr>
 												<th class="cell">Inspeção</th>
+												<th class="cell">Categoria</th>
 												<th class="cell">Descrição</th>
 												<th class="cell">Cliente</th>
 												<th class="cell">Data</th>
+												<th class="cell">Grau</th>
 												<th class="cell">Status</th>
 												<th class="cell"></th>
 											</tr>
@@ -633,55 +635,71 @@
 				<!-- Modal de Visualização e Gestão da Denúncia -->
 		<div class="modal fade" id="modalDetalhesDenuncia" tabindex="-1" aria-labelledby="modalDetalhesDenunciaLabel" aria-hidden="true">
 			<div class="modal-dialog modal-lg modal-dialog-centered">
-			<div class="modal-content">
+				<div class="modal-content">
 				<div class="modal-header bg-primary text-white">
-				<h5 class="modal-title" id="modalDetalhesDenunciaLabel">Detalhes da Denúncia</h5>
-				<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+					<h5 class="modal-title" id="modalDetalhesDenunciaLabel">Detalhes da Denúncia</h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
 				</div>
 				<div class="modal-body">
-				<p><strong>Nome:</strong> <span id="detalheNome"></span></p>
-				<p><strong>Email:</strong> <span id="detalheEmail"></span></p>
-				<p><strong>Localização:</strong> <span id="detalheLocalizacao"></span></p>
-				<p><strong>Descrição:</strong> <span id="detalheDescricao"></span></p>
-				<p><strong>Data:</strong> <span id="detalheData"></span></p>
-		
-				<!-- Secção dos ficheiros -->
-				<p><strong>Ficheiros Anexados:</strong></p>
-				<div id="detalheFicheiros" class="row g-2 mb-3">
+					<p><strong>Nome:</strong> <span id="detalheNome"></span></p>
+					<p><strong>Email:</strong> <span id="detalheEmail"></span></p>
+					<p><strong>Localização:</strong> <span id="detalheLocalizacao"></span></p>
+					<p><strong>Categoria:</strong> <span id="detalheCategoria"></span></p>
+					<p><strong>Descrição:</strong> <span id="detalheDescricao"></span></p>
+					<p><strong>Data:</strong> <span id="detalheData"></span></p>
+
+					<!-- Secção dos ficheiros -->
+					<p><strong>Ficheiros Anexados:</strong></p>
+					<div id="detalheFicheiros" class="row g-2 mb-3">
 					<!-- Preenchido via JS -->
-				</div>
+					</div>
 
-				<hr>
-				<h5>Materiais Associados</h5>
-				<ul id="listaMateriaisAssociados" class="list-group mb-3"></ul>
+					<hr>
+					<h5>Materiais Associados</h5>
+					<ul id="listaMateriaisAssociados" class="list-group mb-3"></ul>
 
-				<h5>Perito Associado</h5>
-				<p id="peritoAssociado" class="mb-3"></p>
+					<h5>Perito Associado</h5>
+					<p id="peritoAssociado" class="mb-3"></p>
 
-				<h5>Total Estimado</h5>
-				<p id="totalDenuncia" class="fw-bold"></p>
-		
-				<!-- Estado -->
-				<div class="form-group">
+					<h5>Total Estimado</h5>
+					<p id="totalDenuncia" class="fw-bold"></p>
+
+					<!-- Estado -->
+					<div class="form-group mb-3">
 					<label for="estadoDenuncia">Estado:</label>
 					<select id="estadoDenuncia" class="form-select">
-					<option value="analisar">Em Análise</option>
-					<option value="finalizada">Finalizada</option>
-					<option value="cancelada">Cancelada</option>
+						<option value="analisar">Em Análise</option>
+						<option value="finalizada">Finalizada</option>
+						<option value="cancelada">Cancelada</option>
 					</select>
 					<div id="explicacaoContainer" class="form-group mt-3" style="display: none;">
 						<label for="explicacaoFinal">Explicação da Finalização/Cancelamento:</label>
 						<textarea id="explicacaoFinal" class="form-control" rows="4" placeholder="Escreve aqui a explicação..."></textarea>
-					  </div>					  
-				</div>
+					</div>
+					</div>
+
+					<!-- Grau de Importância -->
+					<div class="form-group mb-3">
+					<label for="grauImportancia">Grau de Importância (1 a 5):</label>
+					<select id="grauImportancia" class="form-select">
+						<option value="">Não definido</option>
+						<option value="1">1 - Muito Baixo</option>
+						<option value="2">2 - Baixo</option>
+						<option value="3">3 - Médio</option>
+						<option value="4">4 - Alto</option>
+						<option value="5">5 - Muito Alto</option>
+					</select>
+					</div>
+
 				</div>
 				<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-				<button type="button" class="btn btn-primary" id="guardarEstadoBtn">Guardar Alterações</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+					<button type="button" class="btn btn-primary" id="guardarEstadoBtn">Guardar Alterações</button>
+				</div>
 				</div>
 			</div>
 			</div>
-		</div>
+
 
 		<!-- Modal: Associar Perito -->
 		<div class="modal fade" id="modalAssociarPerito" tabindex="-1" aria-labelledby="modalAssociarPeritoTitulo" aria-hidden="true">
