@@ -119,10 +119,12 @@ document.addEventListener("DOMContentLoaded", function() {
     let total = 0;
   
     // Materiais associados
-    if (denuncia.materiais && denuncia.materiais.length > 0) {
+    const materiaisVisiveis = denuncia.materiais || denuncia.materiaisFinal;
+    if (materiaisVisiveis && materiaisVisiveis.length > 0) {
+
       const materiaisStock = JSON.parse(localStorage.getItem("materiaisPorTipo")) || {};
   
-      denuncia.materiais.forEach(m => {
+      materiaisVisiveis.forEach(m => {
         const materialInfo = materiaisStock[m.tipo];
         const precoUnitario = materialInfo?.preco || 0;
         const subtotal = precoUnitario * m.quantidade;
@@ -138,13 +140,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   
       // Peritos associados
-      if (Array.isArray(denuncia.peritos) && denuncia.peritos.length > 0) {
+      const peritosVisiveis = denuncia.peritos || (denuncia.peritosFinal || []).map(p => p.nome);
+      if (Array.isArray(peritosVisiveis) && peritosVisiveis.length > 0) {
         const peritos = JSON.parse(localStorage.getItem("peritos")) || [];
-        const detalhes = denuncia.peritos.map(nome => {
+        const detalhes = peritosVisiveis.map(nome => {
           const info = peritos.find(p => p.nome === nome);
-          return info
-            ? `${info.nome} - €${info.valor ? parseFloat(info.valor).toFixed(2) : "N/D"}`
-            : `${nome} (Informação indisponível)`;
+          const valor = info?.valor ? parseFloat(info.valor).toFixed(2) : "N/D";
+          return `${nome} - €${valor}`;
         });
         peritoAssociado.innerHTML = detalhes.join("<br>");
 
@@ -157,6 +159,7 @@ document.addEventListener("DOMContentLoaded", function() {
       } else {
         peritoAssociado.textContent = "Nenhum perito associado.";
       }
+
   
     // Mostrar Total
     totalDenuncia.textContent = `Total: €${total.toFixed(2)}`;
@@ -254,6 +257,9 @@ document.addEventListener("DOMContentLoaded", function() {
       const relatorios = JSON.parse(localStorage.getItem("relatorios")) || [];
       relatorios.push(relatorio);
       localStorage.setItem("relatorios", JSON.stringify(relatorios));
+
+      denuncia.materiaisFinal = materiaisComValor;
+      denuncia.peritosFinal = peritosComValor;
 
         // Limpar materiais e peritos da denúncia original
         delete denuncia.materiais;
