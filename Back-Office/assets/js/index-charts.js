@@ -288,26 +288,51 @@ createApp({
 }).mount("#grafico-estado-auditorias");
 
 
-// Vue + Chart.js Gráfico de Radar por Perfil
 createApp({
   setup() {
     onMounted(() => {
       const denuncias = JSON.parse(localStorage.getItem("denuncias")) || [];
 
-      // Perfil genérico por tipo (exemplo: quantidade, urgência fictícia, etc.)
-      const tipos = {};
+      const categorias = {};
+
       denuncias.forEach(d => {
         const cat = d.categoria || "Desconhecida";
-        if (!tipos[cat]) tipos[cat] = { total: 0, urgencia: 0, materiais: 0 };
-        tipos[cat].total++;
-        if (d.urgente === "sim") tipos[cat].urgencia++;
-        if (Array.isArray(d.materiais)) tipos[cat].materiais += d.materiais.length;
+        if (!categorias[cat]) {
+          categorias[cat] = {
+            casos: 0,
+            materiais: 0,
+            grauTotal: 0,
+            grauCount: 0
+          };
+        }
+
+        categorias[cat].casos++;
+
+        // Corrigido: considera tanto materiais quanto materiaisFinal
+        if (Array.isArray(d.materiais)) {
+          d.materiais.forEach(m => {
+            categorias[cat].materiais += m.quantidade || 0;
+          });
+        } else if (Array.isArray(d.materiaisFinal)) {
+          d.materiaisFinal.forEach(m => {
+            categorias[cat].materiais += m.quantidade || 0;
+          });
+        }
+
+        const grau = parseInt(d.grau);
+        if (!isNaN(grau)) {
+          categorias[cat].grauTotal += grau;
+          categorias[cat].grauCount++;
+        }
       });
 
-      const labels = Object.keys(tipos);
-      const totais = labels.map(l => tipos[l].total);
-      const urgencias = labels.map(l => tipos[l].urgencia);
-      const materiais = labels.map(l => tipos[l].materiais);
+      const labels = Object.keys(categorias);
+      const casos = labels.map(cat => categorias[cat].casos);
+      const materiais = labels.map(cat => categorias[cat].materiais);
+      const grausMedios = labels.map(cat => {
+        const item = categorias[cat];
+        return item.grauCount > 0 ? (item.grauTotal / item.grauCount).toFixed(2) : 0;
+      });
 
       const ctx = document.getElementById("canvas-perfil").getContext("2d");
 
@@ -317,22 +342,22 @@ createApp({
           labels,
           datasets: [
             {
-              label: 'Total',
-              data: totais,
+              label: 'Casos',
+              data: casos,
               backgroundColor: 'rgba(78, 115, 223, 0.2)',
               borderColor: '#4e73df'
-            },
-            {
-              label: 'Urgentes',
-              data: urgencias,
-              backgroundColor: 'rgba(231, 74, 59, 0.2)',
-              borderColor: '#e74a3b'
             },
             {
               label: 'Materiais',
               data: materiais,
               backgroundColor: 'rgba(28, 200, 138, 0.2)',
               borderColor: '#1cc88a'
+            },
+            {
+              label: 'Grau Médio',
+              data: grausMedios,
+              backgroundColor: 'rgba(246, 194, 62, 0.2)',
+              borderColor: '#f6c23e'
             }
           ]
         },
@@ -344,7 +369,12 @@ createApp({
           scales: {
             r: {
               beginAtZero: true,
-              ticks: { stepSize: 1 }
+              ticks: {
+                stepSize: 1,
+                callback: function (value) {
+                  return Number.isInteger(value) ? value : value.toFixed(1);
+                }
+              }
             }
           }
         }
