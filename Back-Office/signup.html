@@ -1,90 +1,95 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="pt">
 <head>
-    <title>Registo Administradores</title>
-    
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <meta name="description" content="Portal - Bootstrap 5 Admin Dashboard Template For Developers">
-    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
-    <link rel="icon" href="assets/images/Icon.png" type="image/png">
-    
-    <!-- FontAwesome JS-->
-    <script defer src="assets/plugins/fontawesome/js/all.min.js"></script>
-    
-    <!-- App CSS -->  
-    <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
-	<link id="theme-style" rel="stylesheet" href="assets/css/signup.css">
+  <title>Registo Administradores</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/images/Icon.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/portal.css">
+  <link rel="stylesheet" href="assets/css/signup.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap.css">
+</head>
+<body class="app app-signup p-0">
+  <div class="row g-0 app-auth-wrapper">
+    <div class="col-12 col-md-7 col-lg-6 auth-main-col text-center p-5">
+      <div class="d-flex flex-column align-content-end">
+        <div class="app-auth-body mx-auto">
+          <div class="app-auth-branding mb-4">
+            <a class="app-logo" href="index.html">
+              <img class="logo-icon me-2" src="assets/images/Icon.png" alt="logo">
+            </a>
+          </div>
+          <h2 class="auth-heading text-center mb-4">Regista-te no Portal</h2>
+          <div class="auth-form-container text-start mx-auto">
+            <form id="signup-form" class="auth-form auth-signup-form">
+              <div class="mb-3">
+                <label for="signup-name">Nome Completo</label>
+                <input id="signup-name" name="nome" type="text" class="form-control" placeholder="Nome Completo" required>
+              </div>
+              <div class="mb-3">
+                <label for="signup-email">Email</label>
+                <input id="signup-email" name="email" type="email" class="form-control" placeholder="Email" required>
+              </div>
+              <div class="mb-3">
+                <label for="signup-password">Password</label>
+                <input id="signup-password" name="password" type="password" class="form-control" placeholder="Cria uma password" required>
+              </div>
+              <div class="mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                  <label class="form-check-label" for="termsCheck">
+                    Concordo com os <a href="#">Termos e Condições</a> e <a href="#">Política de Privacidade</a>.
+                  </label>
+                </div>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-custom w-100 theme-btn">Registar</button>
+              </div>
+            </form>
+            <div class="auth-option text-center pt-5">
+              Já tem conta? <a class="text-link text-link-custom" href="login.html">Iniciar Sessão</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-5 col-lg-6 h-100 auth-background-col">
+      <div class="auth-background-holder" style="background: url('assets/images/BackgroundSignUp.png') no-repeat center center; background-size: cover;"></div>
+    </div>
+  </div>
 
-</head> 
+  <!-- Modal -->
+  <div class="modal fade" id="mensagemModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header text-white" id="mensagemModalHeader">
+          <h5 class="modal-title" id="mensagemModalLabel">Mensagem</h5>
+          <button type="button" class="close text-white" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="mensagemModalBody"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<body class="app app-signup p-0">    	
-    <div class="row g-0 app-auth-wrapper">
-	    <div class="col-12 col-md-7 col-lg-6 auth-main-col text-center p-5">
-		    <div class="d-flex flex-column align-content-end">
-			    <div class="app-auth-body mx-auto">	
-					<div class="app-auth-branding mb-4"><a class="app-logo" href="index.html"><img class="logo-icon me-2" src="assets/images/Icon.png" alt="logo"></a></div>					
-					<h2 class="auth-heading text-center mb-4">Regista-te no Portal</h2>					
-	
-					<div class="auth-form-container text-start mx-auto">
-						<form class="auth-form auth-signup-form">         
-							<div class="email mb-3">
-								<label class="sr-only" for="signup-email">Nome Completo</label>
-								<input id="signup-name" name="signup-name" type="text" class="form-control signup-name" placeholder="Nome Completo" required="required">
-							</div>
-							<div class="email mb-3">
-								<label class="sr-only" for="signup-email">Email</label>
-								<input id="signup-email" name="signup-email" type="email" class="form-control signup-email" placeholder="Email" required="required">
-							</div>
-							<div class="password mb-3">
-								<label class="sr-only" for="signup-password">Cria uma password</label>
-								<input id="signup-password" name="signup-password" type="password" class="form-control signup-password" placeholder="Cria uma password" required="required">
-							</div>
-							<div class="extra mb-3">
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="RememberPassword">
-									<label class="form-check-label" for="RememberPassword">
-										Concordo com os <a href="#" class="app-link">Termos e Condições</a> e <a href="#" class="app-link">Política de Privacidade</a>.
-									</label>
-								</div>
-							</div><!--//extra-->
-							
-							<div class="text-center">
-								<button type="submit" class="btn btn-custom w-100 theme-btn mx-auto">Registar</button>
-							</div>
-							<div class="text-center mt-3">
-								<button type="submit" class="btn btn-danger w-100 theme-btn mx-auto">Registar com Google</button>
-							</div>							
-						</form><!--//auth-form-->
-						
-						<div class="auth-option text-center pt-5">
-							Já tem conta? <a class="text-link text-link-custom" href="login.html">Iniciar Sessão</a>
-						</div>						
-					</div>
-					<!--//auth-form-container-->	
-			    </div><!--//auth-body-->
-		    </div><!--//flex-column-->   
-	    </div><!--//auth-main-col-->
-	    <div class="col-12 col-md-5 col-lg-6 h-100 auth-background-col">
-			<div class="auth-background-holder" style="background: url('assets/images/BackgroundSignUp.png') no-repeat center center; background-size: cover;">
-		    </div>
-		    <div class="auth-background-mask"></div>
-		    <div class="auth-background-overlay p-3 p-lg-5">
-			    <div class="d-flex flex-column align-content-end h-100">
-				    <div class="h-100"></div>
-				    <div class="overlay-content p-3 p-lg-4 rounded">
-					    <h5 class="mb-3 overlay-title">Explora o Portal Admin Template</h5>
-					    <div>O Portal é um template gratuito de painel de administração em Bootstrap 5. Podes descarregar e ver a licença do template <a href="https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/">aqui</a>.</div>
-				    </div>
-				</div>
-		    </div><!--//auth-background-overlay-->
-	    </div><!--//auth-background-col-->
-    
-    </div><!--//row-->
+  <!-- JS -->
+  <script src="../Front-Office/assets/js/jquery-3.5.1.min.js"></script>
+  <script src="../Front-Office/assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../Front-Office/assets/js/localStorage.js"></script>
+  <script>
+    const dados = localStorage.getItem("mensagemModal");
+    if (dados) {
+      const { titulo, mensagem, tipo } = JSON.parse(dados);
+      document.getElementById("mensagemModalLabel").textContent = titulo;
+      document.getElementById("mensagemModalBody").textContent = mensagem;
+      document.getElementById("mensagemModalHeader").className = "modal-header text-white " + tipo;
+      $('#mensagemModal').modal('show');
+      localStorage.removeItem("mensagemModal");
+    }
+  </script>
 </body>
-
-</html> 
-
+</html>
