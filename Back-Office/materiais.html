@@ -525,5 +525,19 @@
         <!-- Page Specific JS -->
         <script src="assets/js/app.js"></script>
         <script src="assets/js/materiais.js"></script>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+			  const user = JSON.parse(localStorage.getItem("utilizadorAtivo"));
+			  if (!user || !user.foto) return;
+		  
+			  const iconePerfil = document.querySelector('#user-dropdown-toggle img');
+			  if (iconePerfil) {
+				iconePerfil.src = user.foto;
+			  }
+			});
+		  </script>
+		  
+
     </body>
     </html> 

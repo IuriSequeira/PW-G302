@@ -136,8 +136,14 @@ if (signupForm) {
 
     const novoUtilizador = {
       id: logins.length > 0 ? logins[logins.length - 1].id + 1 : 1,
-      nome, email, password
+      nome,
+      email,
+      password,
+      website: "",
+      morada: "",
+      foto: ""
     };
+    
 
     logins.push(novoUtilizador);
     localStorage.setItem("logins", JSON.stringify(logins));
@@ -163,11 +169,13 @@ if (loginForm) {
     const valido = logins.find(u => u.email === email && u.password === password);
 
     if (valido) {
+      localStorage.setItem("utilizadorAtivo", JSON.stringify(valido)); // << AQUI
       mostrarMensagem("Bem-vindo", "Login efetuado com sucesso!", "bg-success");
-      window.location.href = "index.html"; // ou painel.html se preferires
+      window.location.href = "index.html";
     } else {
       mostrarMensagem("Erro de autenticação", "Email ou password inválidos.", "bg-danger");
       location.reload();
     }
   });
 }
+
