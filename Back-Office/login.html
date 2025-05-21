@@ -18,6 +18,10 @@
     <!-- App CSS -->  
     <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
 	<link id="theme-style" rel="stylesheet" href="assets/css/login.css">
+
+	<!-- Google login -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
 </head> 
 
 <body class="app app-login p-0">    	
@@ -56,7 +60,8 @@
 								<button type="submit" class="btn btn-custom w-100 theme-btn mx-auto">Entrar</button>
 							</div>
 							<div class="text-center mt-3">
-								<button type="submit" class="btn btn-danger w-100 theme-btn mx-auto">Entrar com Google</button>
+								<div id="google-login-button"></div>
+								
 							</div>
 						</form>
 						
@@ -84,6 +89,24 @@
     
     </div><!--//row-->
 
+	<script>
+		function handleCredentialResponse(response) {
+			console.log("Encoded JWT ID token: " + response.credential);
+			
+		}
+	
+		window.onload = function () {
+			google.accounts.id.initialize({
+				client_id: "37230938766-h3n30kmlh1gomapupqu2u4e6tjmjl426.apps.googleusercontent.com", 
+				callback: handleCredentialResponse
+			});
+			google.accounts.id.renderButton(
+				document.getElementById("google-login-button"), 
+				{ theme: "outline", size: "large" } 
+			);
+			google.accounts.id.prompt(); 
+		};
+	</script>
 
 </body>
 </html> 
