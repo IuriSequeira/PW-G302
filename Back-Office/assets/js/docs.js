@@ -68,18 +68,27 @@ document.addEventListener("DOMContentLoaded", function () {
           y += 8;
         });
       
-        // Perito
+        // Peritos
         doc.setFont(undefined, 'bold');
-        doc.text("Perito Associado:", 10, y);
+        doc.text("Perito(s) Associado(s):", 10, y);
         y += 8;
         doc.setFont(undefined, 'normal');
-        const valorPerito = d.valorPerito || 0;
-        if (d.perito) {
-          doc.text(`- Nome: ${d.perito}`, 12, y); y += 8;
-          doc.text(`- Valor: €${valorPerito.toFixed(2)}`, 12, y); y += 8;
+
+        let valorPerito = 0;
+
+        if (Array.isArray(d.peritos) && d.peritos.length > 0) {
+          d.peritos.forEach(p => {
+            const nome = p.nome || "Desconhecido";
+            const valor = p.valor || 0;
+            valorPerito += valor;
+            doc.text(`- ${nome}: €${valor.toFixed(2)}`, 12, y);
+            y += 8;
+          });
         } else {
-          doc.text("Nenhum", 12, y); y += 8;
+          doc.text("Nenhum", 12, y);
+          y += 8;
         }
+
       
         // Materiais
         doc.setFont(undefined, 'bold');
@@ -104,9 +113,12 @@ document.addEventListener("DOMContentLoaded", function () {
         doc.text("Resumo Financeiro:", 10, y);
         y += 8;
         doc.setFont(undefined, 'normal');
-        doc.text(`Total do Perito: €${valorPerito.toFixed(2)}`, 12, y); y += 8;
-        doc.text(`Total dos Materiais: €${totalMateriais.toFixed(2)}`, 12, y); y += 8;
-        doc.text(`Valor Total Estimado: €${totalFinal.toFixed(2)}`, 12, y); y += 8;
+        doc.text(`Total do Perito: €${valorPerito.toFixed(2)}`, 12, y);
+        y += 8;
+        doc.text(`Total dos Materiais: €${totalMateriais.toFixed(2)}`, 12, y);
+        y += 8;
+        doc.text(`Valor Total Estimado: €${totalFinal.toFixed(2)}`, 12, y);
+        y += 8;
       
         doc.save(nomeFicheiro);
       }      

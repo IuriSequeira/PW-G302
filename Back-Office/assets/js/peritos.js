@@ -16,7 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function criarCard(perito) {
     const denuncias = JSON.parse(localStorage.getItem('denuncias')) || [];
-    const denunciasDoPerito = denuncias.filter(d => d.perito === perito.nome);
+    const denunciasDoPerito = denuncias.filter(d => 
+        d.estado === "analisar" &&
+        Array.isArray(d.peritos) && 
+        d.peritos.includes(perito.nome)
+        );
     const totalDenuncias = denunciasDoPerito.length;
   
     return `
@@ -146,3 +150,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
   atualizarLista();
 });
+
+

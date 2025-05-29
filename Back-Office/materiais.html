@@ -46,7 +46,7 @@
 			<!--//col-->
 			<div class="app-search-box col">
 			 <form class="app-search-form">
-			  <input class="form-control search-input" name="search" placeholder="Search..." type="text"/>
+			  <input class="form-control search-input" name="search" placeholder="Pesquisar..." type="text"/>
 			  <button class="btn search-btn btn-primary" type="submit" value="Search">
 			   <i class="fa-solid fa-magnifying-glass">
 			   </i>
@@ -346,22 +346,6 @@
 			<!--//nav-item-->
 			<li class="nav-item">
 			 <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-			 <a class="nav-link" href="charts.html">
-			  <span class="nav-icon">
-			   <svg class="bi bi-bar-chart-line" fill="currentColor" height="1em" viewbox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
-				<path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z" fill-rule="evenodd">
-				</path>
-			   </svg>
-			  </span>
-			  <span class="nav-link-text">
-			   Gráficos
-			  </span>
-			 </a>
-			 <!--//nav-link-->
-			</li>
-			<!--//nav-item-->
-			<li class="nav-item">
-			 <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
 			 <a class="nav-link" href="help.html">
 			  <span class="nav-icon">
 			   <svg class="bi bi-question-circle" fill="currentColor" height="1em" viewbox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -463,7 +447,7 @@
 						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-upload me-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 						  <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
 						  <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
-						</svg>Inserir Material
+						</svg>Inserir/Retirar Material
 					  </a>
 					</div>
 	  
@@ -487,33 +471,43 @@
 				</div>				  
 				<div class="modal-body">
 				  <form id="peritoForm">
-					<!-- Tipo de Material -->
-					<div class="mb-3">
-					  <label for="estadoPerito" class="form-label">Tipo de Material</label>
-					  <select class="form-select" id="estadoPerito" name="estado">
-						<option value="carro">Carro</option>
-						<option value="luvas">Luvas</option>
-						<option value="mascara">Máscara</option>
-						<option value="liquidos">Líquidos</option>
-						<option value="oculos">Óculos</option>
-						<option value="botas">Botas</option>
-						<option value="batas">Batas</option>
-						<option value="capacete">Capacete</option>
-					  </select>
-					</div>
-		  
-					<!-- Quantidade a inserir -->
-					<div class="mb-3">
-					  <label for="quantidadeMaterial" class="form-label">Quantidade</label>
-					  <input type="number" class="form-control" id="quantidadeMaterial" name="quantidadeMaterial" min="1" value="1" required>
-					</div>
-		  
-					<!-- Campo Hidden -->
-					<input type="hidden" id="peritoId" name="peritoId">
-		  
-					<!-- Botão de Submissão -->
-					<button type="submit" class="btn app-btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#peritoModal">Inserir Material</button>
-				  </form>
+						<!-- Tipo de Material -->
+						<div class="mb-3">
+							<label for="estadoPerito" class="form-label">Tipo de Material</label>
+							<select class="form-select" id="estadoPerito" name="estado">
+							<option value="carro">Carro</option>
+							<option value="luvas">Luvas</option>
+							<option value="mascara">Máscara</option>
+							<option value="liquidos">Líquidos</option>
+							<option value="oculos">Óculos</option>
+							<option value="botas">Botas</option>
+							<option value="batas">Batas</option>
+							<option value="capacete">Capacete</option>
+							</select>
+						</div>
+
+						<!-- Quantidade -->
+						<div class="mb-3">
+							<label for="quantidadeMaterial" class="form-label">Quantidade</label>
+							<input type="number" class="form-control" id="quantidadeMaterial" name="quantidadeMaterial" min="1" value="1" required>
+						</div>
+
+						<!-- Nova Ação -->
+						<div class="mb-3">
+							<label for="acaoMaterial" class="form-label">Ação</label>
+							<select class="form-select" id="acaoMaterial" name="acao">
+							<option value="inserir" selected>Inserir</option>
+							<option value="retirar">Retirar</option>
+							</select>
+						</div>
+
+						<!-- Campo Hidden -->
+						<input type="hidden" id="peritoId" name="peritoId">
+
+						<!-- Botão de Submissão -->
+						<button type="submit" class="btn app-btn-primary">Executar Ação</button>
+					</form>
+
 				</div>
 			  </div>
 			</div>
@@ -531,5 +525,19 @@
         <!-- Page Specific JS -->
         <script src="assets/js/app.js"></script>
         <script src="assets/js/materiais.js"></script>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+			  const user = JSON.parse(localStorage.getItem("utilizadorAtivo"));
+			  if (!user || !user.foto) return;
+		  
+			  const iconePerfil = document.querySelector('#user-dropdown-toggle img');
+			  if (iconePerfil) {
+				iconePerfil.src = user.foto;
+			  }
+			});
+		  </script>
+		  
+
     </body>
     </html> 

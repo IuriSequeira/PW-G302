@@ -21,6 +21,7 @@
 
 	<!-- Estatisticas --> 
 	<script src="../Back-Office/assets/js/estatisticas.js"></script>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
@@ -52,7 +53,7 @@
 			<!--//col-->
 			<div class="app-search-box col">
 			 <form class="app-search-form">
-			  <input class="form-control search-input" name="search" placeholder="Search..." type="text"/>
+			  <input class="form-control search-input" name="search" placeholder="Pesquisar..." type="text"/>
 			  <button class="btn search-btn btn-primary" type="submit" value="Search">
 			   <i class="fa-solid fa-magnifying-glass">
 			   </i>
@@ -352,22 +353,6 @@
 			<!--//nav-item-->
 			<li class="nav-item">
 			 <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-			 <a class="nav-link" href="charts.html">
-			  <span class="nav-icon">
-			   <svg class="bi bi-bar-chart-line" fill="currentColor" height="1em" viewbox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
-				<path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z" fill-rule="evenodd">
-				</path>
-			   </svg>
-			  </span>
-			  <span class="nav-link-text">
-			   Gráficos
-			  </span>
-			 </a>
-			 <!--//nav-link-->
-			</li>
-			<!--//nav-item-->
-			<li class="nav-item">
-			 <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
 			 <a class="nav-link" href="help.html">
 			  <span class="nav-icon">
 			   <svg class="bi bi-question-circle" fill="currentColor" height="1em" viewbox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -436,15 +421,8 @@
 						    <div class="row gx-5 gy-3">
 						        <div class="col-12 col-lg-9">
 							        
-							        <div>Através deste portal podes fazer download direto das estatísticas da EyesEverywere.</div>
-							    </div><!--//col-->
-							    <div class="col-12 col-lg-3">
-								    <a class="btn app-btn-primary" href="charts.html"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-earmark-arrow-down me-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
-  <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z"/>
-  <path fill-rule="evenodd" d="M8 6a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 10.293V6.5A.5.5 0 0 1 8 6z"/>
-</svg>Estatísticas</a>	
-							    </div><!--//col-->
+							        <div>Através deste portal podes fazer verificar diretamente as estatísticas da EyesEverywere.</div>
+							    </div><!--//col--><!--//col-->
 						    </div><!--//row-->
 						    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 					    </div><!--//app-card-body-->
@@ -467,40 +445,39 @@
 					    </div><!--//app-card-->
 				    </div><!--//col-->
 				    
-				    <div class="col-6 col-lg-3">
-					    <div class="app-card app-card-stat shadow-sm h-100">
-						    <div class="app-card-body p-3 p-lg-4">
-							    <h4 class="stats-type mb-1">Inspeções realizadas </h4>
-							    <div class="stats-figure">20</div>
-							    <div class="stats-meta text-success">
-								    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
-</svg> 5% </div>
-						    </div><!--//app-card-body-->
-						    <a class="app-card-link-mask" href="#"></a>
-					    </div><!--//app-card-->
-				    </div><!--//col-->
-				    <div class="col-6 col-lg-3">
-					    <div class="app-card app-card-stat shadow-sm h-100">
-						    <div class="app-card-body p-3 p-lg-4">
-							    <h4 class="stats-type mb-1">Inspeções por realizar</h4>
-							    <div class="stats-figure">230</div>
-							    <div class="stats-meta">
-								    Atualizado</div>
-						    </div><!--//app-card-body-->
-						    <a class="app-card-link-mask" href="#"></a>
-					    </div><!--//app-card-->
-				    </div><!--//col-->
-				    <div class="col-6 col-lg-3">
-					    <div class="app-card app-card-stat shadow-sm h-100">
-						    <div class="app-card-body p-3 p-lg-4">
-							    <h4 class="stats-type mb-1">Tempo médio de resolução</h4>
-							    <div class="stats-figure">2 dias</div>
-							    <div class="stats-meta">Nova</div>
-						    </div><!--//app-card-body-->
-						    <a class="app-card-link-mask" href="#"></a>
-					    </div><!--//app-card-->
-				    </div><!--//col-->
+					<div class="col-6 col-lg-3">
+					<div class="app-card app-card-stat shadow-sm h-100">
+						<div class="app-card-body p-3 p-lg-4">
+						<h4 class="stats-type mb-1">Denúncias em Análise</h4>
+						<div id="estatistica-analise" class="stats-figure">0</div>
+						<div id="percentagem-analise" class="stats-meta text-primary"></div>
+						</div><!--//app-card-body-->
+						<a class="app-card-link-mask" href="#"></a>
+					</div><!--//app-card-->
+					</div>
+<!--//col-->
+					<div class="col-6 col-lg-3">
+					<div class="app-card app-card-stat shadow-sm h-100">
+						<div class="app-card-body p-3 p-lg-4">
+						<h4 class="stats-type mb-1">Denúncias Finalizadas</h4>
+						<div id="estatistica-finalizadas" class="stats-figure">0</div>
+						<div id="percentagem-finalizadas" class="stats-meta text-success"></div>
+						</div><!--//app-card-body-->
+						<a class="app-card-link-mask" href="#"></a>
+					</div><!--//app-card-->
+					</div>
+<!--//col-->
+				   <div class="col-6 col-lg-3">
+						<div class="app-card app-card-stat shadow-sm h-100">
+							<div class="app-card-body p-3 p-lg-4">
+							<h4 class="stats-type mb-1">Denúncias Canceladas</h4>
+							<div id="estatistica-canceladas" class="stats-figure">0</div>
+							<div id="percentagem-canceladas" class="stats-meta text-danger"></div>
+							</div><!--//app-card-body-->
+							<a class="app-card-link-mask" href="#"></a>
+						</div><!--//app-card-->
+					</div>
+<!--//col-->
 			    </div><!--//row-->
 			    <div class="row g-4 mb-4">
 			        <div class="col-12 col-lg-6">
@@ -538,177 +515,71 @@
 						        </div><!--//row-->
 					        </div><!--//app-card-header-->
 					        <div class="app-card-body p-3 p-lg-4">
-							    <div class="mb-3 d-flex">   
-							        <select class="form-select form-select-sm ms-auto d-inline-flex w-auto">
-										<option value="mes" selected>Este mês</option>
-										<option value="hoje">Hoje</option>
-										<option value="semana">Esta Semana</option>
-										<option value="ano">Este ano</option>
+								<div class="mb-3 d-flex">   
+									<select class="form-select form-select-sm ms-auto d-inline-flex w-auto">
+									<option value="mes" selected>Este mês</option>
+									<option value="hoje">Hoje</option>
+									<option value="semana">Esta Semana</option>
+									<option value="ano">Este ano</option>
 									</select>
-							    </div>
-						        <div class="chart-container">
-				                    <canvas id="canvas-barchart" ></canvas>
-						        </div>
-					        </div><!--//app-card-body-->
-				        </div><!--//app-card-->
-			        </div><!--//col-->
-			        
-			    </div><!--//row-->
-			    <div class="row g-4 mb-4">
-				    <div class="col-12 col-lg-6">
-				        <div class="app-card app-card-progress-list h-100 shadow-sm">
-					        <div class="app-card-header p-3">
-						        <div class="row justify-content-between align-items-center">
-							        <div class="col-auto">
-						                <h4 class="app-card-title">Progresso</h4>
-							        </div><!--//col-->
-							        <div class="col-auto">
-								        <div class="card-header-action">
-									        <a href="#">Todos os projetos</a>
-								        </div><!--//card-header-actions-->
-							        </div><!--//col-->
-						        </div><!--//row-->
-					        </div><!--//app-card-header-->
-					        <div class="app-card-body">
-							    <div class="item p-3">
-								    <div class="row align-items-center">
-									    <div class="col">
-										    <div class="title mb-1 ">Novos Registos de Utilizadores</div>
-										    <div class="progress">
-  <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-									    </div><!--//col-->
-									    <div class="col-auto">
-										    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-</svg>
-									    </div><!--//col-->
-								    </div><!--//row-->
-								    <a class="item-link-mask" href="#"></a>
-							    </div><!--//item-->
-							    
-							    
-							     <div class="item p-3">
-								    <div class="row align-items-center">
-									    <div class="col">
-										    <div class="title mb-1 ">Revisão de Auditorias Pendentes</div>
-										    <div class="progress">
-  <div class="progress-bar bg-success" role="progressbar" style="width: 34%;" aria-valuenow="34" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-									    </div><!--//col-->
-									    <div class="col-auto">
-										    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-</svg>
-									    </div><!--//col-->
-								    </div><!--//row-->
-								    <a class="item-link-mask" href="#"></a>
-							    </div><!--//item-->
-							    
-							    <div class="item p-3">
-								    <div class="row align-items-center">
-									    <div class="col">
-										    <div class="title mb-1 ">Atualização de Dados do Sistema</div>
-										    <div class="progress">
-  <div class="progress-bar bg-success" role="progressbar" style="width: 68%;" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-									    </div><!--//col-->
-									    <div class="col-auto">
-										    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-</svg>
-									    </div><!--//col-->
-								    </div><!--//row-->
-								    <a class="item-link-mask" href="#"></a>
-							    </div><!--//item-->
-							    
-							    <div class="item p-3">
-								    <div class="row align-items-center">
-									    <div class="col">
-										    <div class="title mb-1 ">Tempo Médio de Resolução</div>
-										    <div class="progress">
-  <div class="progress-bar bg-success" role="progressbar" style="width: 52%;" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-									    </div><!--//col-->
-									    <div class="col-auto">
-										    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-</svg>
-									    </div><!--//col-->
-								    </div><!--//row-->
-								    <a class="item-link-mask" href="#"></a>
-							    </div><!--//item-->
-		
-					        </div><!--//app-card-body-->
-				        </div><!--//app-card-->
-			        </div><!--//col-->
-			        <div class="col-12 col-lg-6">
-				        <div class="app-card app-card-stats-table h-100 shadow-sm">
-					        <div class="app-card-header p-3">
-						        <div class="row justify-content-between align-items-center">
-							        <div class="col-auto">
-						                <h4 class="app-card-title">Lista de Estatísticas</h4>
-							        </div><!--//col-->
-							        <div class="col-auto">
-								        <div class="card-header-action">
-									        <a href="#">Ver Relatório</a>
-								        </div><!--//card-header-actions-->
-							        </div><!--//col-->
-						        </div><!--//row-->
-					        </div><!--//app-card-header-->
-					        <div class="app-card-body p-3 p-lg-4">
-						        <div class="table-responsive">
-							        <table class="table table-borderless mb-0">
-										<thead>
-											<tr>
-												<th class="meta">Fonte</th>
-												<th class="meta stat-cell">Vizualisações</th>
-												<th class="meta stat-cell">Hoje</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td><a href="#">google.com</a></td>
-												<td class="stat-cell">110</td>
-												<td class="stat-cell">
-													<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up text-success" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-									  <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
-									</svg> 
-									                30%
-									            </td>
-											</tr>
-											<tr>
-												<td><a href="#">getbootstrap.com</a></td>
-												<td class="stat-cell">67</td>
-												<td class="stat-cell">23%</td>
-											</tr>
-											<tr>
-												<td><a href="#">w3schools.com</a></td>
-												<td class="stat-cell">56</td>
-												<td class="stat-cell">
-													<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-down text-danger" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-									  <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
-									</svg>
-												    20%
-											    </td>
-											</tr>
-											<tr>
-												<td><a href="#">javascript.com </a></td>
-												<td class="stat-cell">24</td>
-												<td class="stat-cell">-</td>
-											</tr>
-											<tr>
-												<td><a href="#">github.com </a></td>
-												<td class="stat-cell">17</td>
-												<td class="stat-cell">15%</td>
-											</tr>
-										</tbody>
-									</table>
-						        </div><!--//table-responsive-->
-					        </div><!--//app-card-body-->
+								</div>
+								<div class="chart-container">
+									<div id="grafico-estado-auditorias">
+									<canvas id="canvas-doughnut"></canvas>
+									</div>
+								</div>
+							</div>
 				        </div><!--//app-card-->
 			        </div><!--//col-->
 			    </div><!--//row-->
+
+			<div class="row g-4 mb-4">
+				<!-- Gráfico de Barras por Categoria -->
+				<div class="col-12 col-lg-6">
+					<div class="app-card app-card-chart h-100 shadow-sm">
+					<div class="app-card-header p-3">
+						<h4 class="app-card-title">Denúncias por Categoria</h4>
+					</div>
+					<div class="app-card-body p-3 p-lg-4">
+						<div class="chart-container">
+							<div id="grafico-categorias">
+								<canvas id="canvas-categorias"></canvas>
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+
+				<!-- Gráfico de Radar por Perfil -->
+				<div class="col-12 col-lg-6">
+					<div class="app-card app-card-chart h-100 shadow-sm">
+					<div class="app-card-header p-3">
+						<h4 class="app-card-title">Perfil das Denúncias</h4>
+					</div>
+					<div class="app-card-body p-3 p-lg-4">
+						<div class="chart-container">
+						<div id="grafico-perfil">
+							<canvas id="canvas-perfil"></canvas>
+						</div>
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		    </div><!--//container-fluid-->
 	    </div><!--//app-content--><!--//app-footer-->
 	    
@@ -725,6 +596,60 @@
     
     <!-- Page Specific JS -->
     <script src="assets/js/app.js"></script> 
+
+	<script>
+		const dados = localStorage.getItem("mensagemModal");
+		if (dados) {
+		  const { titulo, mensagem, tipo } = JSON.parse(dados);
+	  
+		  // Cria o modal dinamicamente se não existir
+		  if (!document.getElementById("mensagemModal")) {
+			const modalHTML = `
+			  <div class="modal fade" id="mensagemModal" tabindex="-1" role="dialog">
+				<div class="modal-dialog modal-dialog-centered">
+				  <div class="modal-content">
+					<div class="modal-header text-white ${tipo}" id="mensagemModalHeader">
+					  <h5 class="modal-title" id="mensagemModalLabel">${titulo}</h5>
+					  <button type="button" class="close text-white" data-bs-dismiss="modal">
+						<span>&times;</span>
+					  </button>
+					</div>
+					<div class="modal-body" id="mensagemModalBody">${mensagem}</div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			`;
+			document.body.insertAdjacentHTML('beforeend', modalHTML);
+		  } else {
+			document.getElementById("mensagemModalLabel").textContent = titulo;
+			document.getElementById("mensagemModalBody").textContent = mensagem;
+			document.getElementById("mensagemModalHeader").className = "modal-header text-white " + tipo;
+		  }
+	  
+		  // Mostra o modal
+		  const modal = new bootstrap.Modal(document.getElementById("mensagemModal"));
+		  modal.show();
+	  
+		  localStorage.removeItem("mensagemModal");
+		}
+	  </script>
+	  
+
+	  <script>
+		document.addEventListener("DOMContentLoaded", () => {
+		  const user = JSON.parse(localStorage.getItem("utilizadorAtivo"));
+		  if (!user || !user.foto) return;
+	  
+		  const iconePerfil = document.querySelector('#user-dropdown-toggle img');
+		  if (iconePerfil) {
+			iconePerfil.src = user.foto;
+		  }
+		});
+	  </script>
+	  
 
 </body>
 </html> 
