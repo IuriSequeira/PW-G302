@@ -90,6 +90,7 @@
 	<script>
 		function handleCredentialResponse(response) {
 			console.log("Encoded JWT ID token: " + response.credential);
+			window.location.href = "account.html";
 			
 		}
 	
@@ -105,6 +106,14 @@
 			google.accounts.id.prompt(); 
 		};
 	</script>
+
+	<script>
+    // Redirecionar após login normal
+       document.querySelector('.login-form').addEventListener('submit', function(e) {
+       e.preventDefault();
+       window.location.href = "account.html";
+       });
+    </script>
 
 
 </body>
