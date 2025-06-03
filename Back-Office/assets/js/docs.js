@@ -15,20 +15,21 @@ document.addEventListener("DOMContentLoaded", function () {
             <span class="icon-holder"><i class="fas fa-file-pdf text-danger"></i></span>
             <span class="badge bg-info">PDF</span>
           </div>
-          <div class="app-card-body p-3 has-card-actions">
-            <h4 class="app-doc-title truncate mb-0">${nomeRelatorio}</h4>
+          <div class="app-card-body p-3">
+            <h4 class="app-doc-title mb-2">${nomeRelatorio}</h4>
             <div class="app-doc-meta">
-              <ul class="list-unstyled mb-0">
+             <ul class="list-unstyled mb-2">
                 <li><span class="text-muted">Data:</span> ${rel.dataGeracao}</li>
                 <li><span class="text-muted">Estado:</span> ${rel.estadoFinal}</li>
               </ul>
             </div>
-            <div class="app-card-actions">
-              <button class="btn-sm app-btn-secondary gerar-pdf" data-index="${index}">Download</button>
-            </div>
+          </div>
+          <div class="app-card-actions p-3">
+            <button class="btn-sm app-btn-secondary gerar-pdf" data-index="${index}">Download</button>
           </div>
         </div>
       `;
+
       container.appendChild(card);
     });
   
@@ -121,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
         y += 8;
       
         doc.save(nomeFicheiro);
-      }      
+      }   
+         
   });
   

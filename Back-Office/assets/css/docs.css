@@ -1,13 +1,12 @@
 /* Estilo para a palavra EyesEverywhere */
 .app-logo .logo-text {
-    color: #00D9A5; /* A cor verde desejada */
-    font-weight: bold; /* (Opcional) Deixa a palavra mais em destaque */
-    transition: color 0.3s ease; /* Transição suave para mudanças de cor */
+    color: #00D9A5;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-/* Efeito de hover para mudar a cor quando o utilizador passar o rato */
 .app-logo .logo-text:hover {
-    color: #059c7a; /* Cor ligeiramente mais escura quando o rato passar por cima */
+    color: #059c7a;
 }
 
 /* Sidebar */
@@ -19,12 +18,10 @@
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Item de navegação */
 .nav-item {
     margin: 10px 0;
 }
 
-/* Link de navegação */
 .nav-link {
     display: flex;
     align-items: center;
@@ -35,32 +32,28 @@
     transition: all 0.3s ease-in-out;
 }
 
-/* Hover nos links de navegação */
 .nav-link:hover {
     background-color: rgba(255, 255, 255, 0.15);
     transform: translateX(5px);
     box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
 }
 
-/* Ícones dos links de navegação */
 .nav-icon svg {
     margin-right: 10px;
     transition: transform 0.3s ease-in-out;
-    fill: rgba(7, 190, 148, 1); /* Cor verde mais forte, similar ao fundo */
+    fill: rgba(7, 190, 148, 1);
 }
 
-/* Hover nos ícones de navegação */
 .nav-link:hover .nav-icon svg {
     transform: scale(1.2);
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
 }
 
-/* Submenu Toggle */
+/* Submenu */
 .submenu-toggle {
     position: relative;
 }
 
-/* Animação da seta do submenu */
 .submenu-toggle .submenu-arrow svg {
     transition: transform 0.3s;
 }
@@ -69,23 +62,20 @@
     transform: rotate(180deg);
 }
 
-/* Submenu */
 .submenu {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
     transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    background-color: rgba(7, 190, 148, 0.8); /* Verde mais forte para o submenu */
+    background-color: rgba(7, 190, 148, 0.8);
     padding-left: 20px;
 }
 
-/* Submenu visível */
 .submenu.show {
     max-height: 500px;
     opacity: 1;
 }
 
-/* Links do submenu */
 .submenu-item .submenu-link {
     padding: 8px;
     color: white !important;
@@ -97,43 +87,117 @@
     transition: background 0.3s ease;
 }
 
-/* Hover nos links do submenu */
 .submenu-item .submenu-link:hover {
-    background-color: rgba(255, 255, 255, 0.3); /* Um verde mais intenso no hover */
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Efeito hover para o botão principal */
+/* Botões principais */
 .app-btn-primary {
     background-color: #00D9A5 !important;
     border-color: #00D9A5 !important;
     color: white !important;
 }
 
-/* Hover para o botão principal */
 .app-btn-primary:hover {
     background-color: #059c7a !important;
     border-color: #059c7a !important;
 }
 
-/* Ícones dentro do submenu */
 .submenu.show .nav-icon svg {
-    fill: rgba(7, 190, 148, 1); /* Garantir que os ícones dentro do submenu também ficam com o verde correto */
+    fill: rgba(7, 190, 148, 1);
 }
 
-/* Submenu ativo */
 .submenu-item.active .submenu-link {
-    background-color: rgba(7, 190, 148, 1); /* Fundo verde mais intenso para submenu ativo */
+    background-color: rgba(7, 190, 148, 1);
     color: white !important;
 }
 
-/* Efeito de hover no submenu */
 .submenu-item.active .submenu-link:hover {
-    background-color: rgba(7, 190, 148, 1); /* Mesmo tom de verde intenso no hover */
+    background-color: rgba(7, 190, 148, 1);
 }
 
-/* Alteração no texto do submenu */
 .submenu-item .submenu-link:active,
 .nav-link:active {
-    color: white !important; /* Garantir que o texto não mude de cor */
-    background-color: rgba(7, 190, 148, 0.8); /* Fundo verde mais forte e saturado */
+    color: white !important;
+    background-color: rgba(7, 190, 148, 0.8);
+}
+
+/* ----------- RELATÓRIOS / CARTÕES ----------- */
+
+/* Estrutura geral do cartão de relatório */
+.app-card {
+  display: flex;
+  flex-direction: column;
+  height: 240px; 
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Cabeçalho com ícone PDF */
+.app-card-thumb-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 1rem;
+    position: relative;
+}
+
+/* Etiqueta PDF no canto superior direito */
+.app-card-thumb-holder .badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.7rem;
+}
+
+/* Corpo do cartão */
+.app-card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 0.75rem;
+}
+
+
+/* Título do relatório */
+.app-doc-title {
+    font-size: 0.85rem;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    min-height: 2.5em;
+}
+
+/* Metadados do relatório */
+.app-doc-meta {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+/* Ações (botão Download) */
+.app-card-actions {
+  padding: 0.5rem;
+  text-align: center;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* Botão Download */
+.app-btn-secondary {
+  background-color: #00D9A5;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.app-btn-secondary:hover {
+    background-color: #059c7a;
 }
